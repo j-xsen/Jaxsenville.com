@@ -3,7 +3,11 @@ import './App.css'
 function MenuButton({ text }: { text: string }) {
   
   return (
-      <h2>{text}</h2>
+    <>
+      <img id={`${text}-button`}
+      className="menu-button"
+      src={`/src/assets/${text}.svg`}/>
+    </>
   );
 }
 
@@ -11,10 +15,9 @@ function App() {
 
   return (
     <>
-      <h1>Jaxsenville</h1>
-      <h3>The home and birthplace of</h3>
-      <h2>Jaxsen Honeycutt</h2>
-      <MenuButton text="Blahg"/>
+      <img id="header-image" src="/src/assets/jaxsenvillesign.png"/>
+      <MenuButton text="blahg"/>
+      <MenuButton text="art"/>
     </>
   );
 }
