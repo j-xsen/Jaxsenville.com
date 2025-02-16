@@ -11,13 +11,29 @@ function MenuButton({ text }: { text: string }) {
   );
 }
 
+function Menu() {
+  return (
+    <>
+      <MenuButton text="art"/>
+      <MenuButton text="blahg"/>
+    </>
+  )
+}
+
+function HeaderImage() {
+  return (
+    <>
+      <img id="header-image" src="/src/assets/jaxsenvillesign.png"/>
+    </>
+  )
+}
+
 function App() {
 
   return (
     <>
-      <img id="header-image" src="/src/assets/jaxsenvillesign.png"/>
-      <MenuButton text="blahg"/>
-      <MenuButton text="art"/>
+      <HeaderImage/>
+      <Menu/>
     </>
   );
 }

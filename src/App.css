@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 @keyframes rotate-header {
     0% {transform: rotate(3deg);}
     25% {transform: rotate(-2deg);}
@@ -42,8 +46,8 @@ body {
 }
 
 #art-button {
-    left: 6rem;
-    top: 12rem;
+    left: 2rem;
+    top: 30%;
     animation-delay:1ms;
     animation-duration: 5s;
 }
@@ -53,8 +57,8 @@ body {
 }
 
 #blahg-button {
-    left: 10rem;
-    top: 20rem;
+    right: 3rem;
+    top: 50%;
     width: 9rem;
     animation-delay:2s;
     animation-duration: 4s;
