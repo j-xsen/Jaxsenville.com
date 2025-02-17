@@ -6,6 +6,7 @@ function MenuButton({ text }: { text: string }) {
     <>
       <img id={`${text}-button`}
       className="menu-button"
+      draggable="false"
       src={`/src/assets/${text}.svg`}/>
     </>
   );
@@ -25,7 +26,18 @@ function Menu() {
 function HeaderImage() {
   return (
     <>
-      <img id="header-image" src="/src/assets/jaxsenvillesign.png"/>
+      <img id="header-image"
+      src="/src/assets/jaxsenvillesign.png"
+      draggable="false"/>
+    </>
+  )
+}
+
+function FrontPage() {
+  return (
+    <>
+      <HeaderImage/>
+      <Menu/>
     </>
   )
 }
@@ -34,8 +46,7 @@ function App() {
 
   return (
     <>
-      <HeaderImage/>
-      <Menu/>
+      <FrontPage/>
     </>
   );
 }
