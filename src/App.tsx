@@ -16,6 +16,8 @@ function Menu() {
     <>
       <MenuButton text="art"/>
       <MenuButton text="blahg"/>
+      <MenuButton text="music"/>
+      <MenuButton text="contact"/>
     </>
   )
 }
