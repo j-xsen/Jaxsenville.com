@@ -1,0 +1,45 @@
+@media (min-width: 500px) {
+    #music-button {
+        left: 20%;
+    }
+}
+
+@media (min-width:850px){
+    #header-image{
+        width:60%;
+        left:19%;
+        margin-top:9%;
+    }
+    #contact-button {
+        right: 30%;
+    }
+    #art-button {
+        bottom: 27%;
+    }
+    #music-button {
+        bottom: 7%;
+        left: 28%;
+    }
+    #blahg-button {
+        bottom: 20%;
+    }
+}
+
+@media (max-width: 320px) {
+    #art-button {
+        bottom: 65%;
+    }
+    #blahg-button {
+        bottom: 42%;
+    }
+    #music-button {
+        bottom: 21%;
+    }
+    #contact-button {
+        bottom: 5%;
+        right: 1%;
+    }
+    #header-image{
+        margin-top:-4%;
+    }
+}

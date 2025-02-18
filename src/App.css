@@ -1,5 +1,14 @@
 html, body {
     height: 100%;
+    margin: 0;
+}
+
+html {
+    background-image: url("assets/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(25, 86, 15);
 }
 
 @keyframes rotate-header {
@@ -22,14 +31,14 @@ html, body {
     100% {transform:translateX(10rem);}
 }
 
-body {
+/* body {
     background: #7accda;
     background: linear-gradient(90deg, rgba(0,212,255, 1) 0%,
         rgb(150, 238, 255) 45%,
         rgb(150, 238, 255) 55%,
-        /* rgba(255, 255, 255, 1) 66%, */
+        /* rgba(255, 255, 255, 1) 66%, /
         rgba(0,212,255,1) 100%);
-}
+} */
 
 #header-image {
     width: 90%;
@@ -53,7 +62,7 @@ body {
 
 #art-button {
     left: 8%;
-    top: 30%;
+    bottom: 40%;
     animation-delay:1ms;
     animation-duration: 5s;
 }
@@ -64,7 +73,7 @@ body {
 
 #blahg-button {
     right: 9%;
-    top: 46%;
+    bottom: 31%;
     width: 9rem;
     animation-delay:2s;
     animation-duration: 4s;
@@ -75,8 +84,8 @@ body {
 }
 
 #music-button {
-    left: 15%;
-    top: 61%;
+    left: 6%;
+    bottom: 12%;
     animation-delay: 1.7s;
 }
 
@@ -85,8 +94,8 @@ body {
 }
 
 #contact-button {
-    right: 20%;
-    top: 79%;
+    right: 15%;
+    bottom: 7%;
     animation-delay:3s;
 }
 

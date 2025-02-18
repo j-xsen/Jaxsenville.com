@@ -1,13 +1,13 @@
 import './App.css'
+import './DisplayChanges.css'
 
 function MenuButton({ text }: { text: string }) {
-  
   return (
     <>
       <img id={`${text}-button`}
       className="menu-button"
       draggable="false"
-      src={`/src/assets/${text}.svg`}/>
+      src={`/src/assets/${text}_outline.svg`}/>
     </>
   );
 }
@@ -43,7 +43,6 @@ function FrontPage() {
 }
 
 function App() {
-
   return (
     <>
       <FrontPage/>
