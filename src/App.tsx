@@ -1,5 +1,8 @@
+import './Font.css'
 import './App.css'
 import './DisplayChanges.css'
+import './ContactPage.tsx'
+import ContactPage from './ContactPage.tsx';
 
 function MenuButton({ text }: { text: string }) {
   return (
@@ -7,7 +10,7 @@ function MenuButton({ text }: { text: string }) {
       <img id={`${text}-button`}
       className="menu-button"
       draggable="false"
-      src={`/src/assets/${text}_outline.svg`}/>
+      src={`./src/assets/${text}_outline.svg`}/>
     </>
   );
 }
@@ -45,7 +48,7 @@ function FrontPage() {
 function App() {
   return (
     <>
-      <FrontPage/>
+      <ContactPage/>
     </>
   );
 }
