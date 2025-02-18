@@ -13,6 +13,7 @@
     top: 0;
     right: 0.75rem;
     height: 35%;
+    animation: rotate-header linear 10s infinite;
 }
 
 #single-page-header-image {

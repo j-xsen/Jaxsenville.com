@@ -15,7 +15,7 @@ function MenuButton({ text, setPage }: { text: string, setPage: TsetPage }) {
       className="menu-button"
       draggable="false"
       onClick={changePage}
-      src={`./src/assets/${text}_outline.svg`}/>
+      src={`./${text}_outline.svg`}/>
     </>
   );
 }
@@ -35,7 +35,7 @@ function HeaderImage() {
   return (
     <>
       <img id="header-image"
-      src="/src/assets/jaxsenvillesign.png"
+      src="/jaxsenvillesign.png"
       draggable="false"/>
     </>
   )

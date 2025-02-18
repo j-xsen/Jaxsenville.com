@@ -4,7 +4,7 @@ html, body {
 }
 
 html {
-    background-image: url("assets/bg.jpg");
+    background-image: url("bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,12 +25,6 @@ html {
     100% {transform:rotate(1deg);transform:translateY(0rem);}
 }
 
-@keyframes bounce {
-    0% {transform:translateX(10rem);}
-    50%{transform:translateX(-10rem);}
-    100% {transform:translateX(10rem);}
-}
-
 #header-image {
     width: 90%;
     position: relative;
@@ -44,7 +38,7 @@ html {
     width: 10rem;
     position: absolute;
     filter: drop-shadow(0px 0.25rem 0.25rem rgba(0,0,0,0.5));
-    animation: bounce 1s ease infinite, rotate-menu 5s linear infinite;
+    animation: rotate-menu 5s linear infinite;
 }
 
 .menu-button:hover {

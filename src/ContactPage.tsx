@@ -6,7 +6,7 @@ function PhoneImage() {
     return (
         <>
         <img id="telephone"
-        src="/src/assets/phone_outline.svg"/>
+        src="/phone_outline.svg"/>
         </>
     )
 }
@@ -29,7 +29,7 @@ function JaxsenvilleSign({backHome}: {backHome: emptyFunction}) {
         id="jaxsenvillesign"
         draggable="false"
         onClick={backHome}
-        src="/src/assets/jaxsenvillesign.png"/>
+        src="/jaxsenvillesign.png"/>
         </>
     )
 }
@@ -44,7 +44,7 @@ function ContactPage({setPage}: {setPage: (name: string)=>void}) {
         id="single-page-header-image"
         draggable="false"
         onClick={backHome}
-        src="/src/assets/contact_outline.svg"/>
+        src="/contact_outline.svg"/>
         <PageContainer/>
         </>
     )
