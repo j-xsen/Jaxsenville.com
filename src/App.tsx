@@ -3,25 +3,30 @@ import './App.css'
 import './DisplayChanges.css'
 import './ContactPage.tsx'
 import ContactPage from './ContactPage.tsx';
+import { useState } from 'react';
 
-function MenuButton({ text }: { text: string }) {
+type TsetPage = (name: string) => void;
+
+function MenuButton({ text, setPage }: { text: string, setPage: TsetPage }) {
+  const changePage = () => {setPage(text);};
   return (
     <>
       <img id={`${text}-button`}
       className="menu-button"
       draggable="false"
+      onClick={changePage}
       src={`./src/assets/${text}_outline.svg`}/>
     </>
   );
 }
 
-function Menu() {
+function Menu({setPage}: {setPage: TsetPage}) {
   return (
     <>
-      <MenuButton text="art"/>
-      <MenuButton text="blahg"/>
-      <MenuButton text="music"/>
-      <MenuButton text="contact"/>
+      <MenuButton text="art" setPage={setPage}/>
+      <MenuButton text="blahg" setPage={setPage}/>
+      <MenuButton text="music"setPage={setPage}/>
+      <MenuButton text="contact"setPage={setPage}/>
     </>
   )
 }
@@ -36,19 +41,22 @@ function HeaderImage() {
   )
 }
 
-function FrontPage() {
+function FrontPage({setPage}: {setPage: TsetPage}) {
   return (
     <>
       <HeaderImage/>
-      <Menu/>
+      <Menu setPage={setPage}/>
     </>
   )
 }
 
 function App() {
+  const [page, setPage] = useState("home");
+
   return (
     <>
-      <ContactPage/>
+      {page=="home" && <FrontPage setPage={setPage}/>}
+      {page=="contact" && <ContactPage setPage={setPage}/>}
     </>
   );
 }

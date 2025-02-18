@@ -31,15 +31,6 @@ html {
     100% {transform:translateX(10rem);}
 }
 
-/* body {
-    background: #7accda;
-    background: linear-gradient(90deg, rgba(0,212,255, 1) 0%,
-        rgb(150, 238, 255) 45%,
-        rgb(150, 238, 255) 55%,
-        /* rgba(255, 255, 255, 1) 66%, /
-        rgba(0,212,255,1) 100%);
-} */
-
 #header-image {
     width: 90%;
     position: relative;

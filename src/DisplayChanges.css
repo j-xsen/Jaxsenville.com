@@ -1,6 +1,10 @@
 @media (min-width: 500px) {
     #music-button {
         left: 20%;
+        bottom: 8%;
+    }
+    #art-button {
+        bottom: 33%;
     }
 }
 
