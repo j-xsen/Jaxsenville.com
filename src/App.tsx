@@ -1,7 +1,8 @@
 import './Font.css'
 import './App.css'
-import './ContactPage.tsx'
+import PageTitleButton from './PageTitleButton.tsx';
 import ContactPage from './ContactPage.tsx';
+import ArtPage from './ArtPage.tsx';
 import { useState } from 'react';
 import './DisplayChanges.css'
 
@@ -20,19 +21,7 @@ function MenuButton({ text, setPage }: { text: string, setPage: TsetPage }) {
   );
 }
 
-function Menu({setPage}: {setPage: TsetPage}) {
-  return (
-    <>
-      <MenuButton text="art" setPage={setPage}/>
-      <MenuButton text="blahg" setPage={setPage}/>
-      <MenuButton text="music" setPage={setPage}/>
-      <MenuButton text="contact" setPage={setPage}/>
-    </>
-  )
-}
-
-function HeaderImage({ page, goHome }: { page: string, goHome: () => void }) {
-  const curPage = page;
+function HeaderImage({ curPage, goHome }: { curPage: string, goHome: () => void }) {
   return (
     <>
       <img id="header-image"
@@ -47,7 +36,10 @@ function HeaderImage({ page, goHome }: { page: string, goHome: () => void }) {
 function FrontPage({setPage}: {setPage: TsetPage}) {
   return (
     <>
-      <Menu setPage={setPage}/>
+      <MenuButton text="art" setPage={setPage}/>
+      <MenuButton text="blahg" setPage={setPage}/>
+      <MenuButton text="music" setPage={setPage}/>
+      <MenuButton text="contact" setPage={setPage}/>
     </>
   )
 }
@@ -59,9 +51,11 @@ function App() {
 
   return (
     <>
-    <HeaderImage page={page} goHome={goHome}/>
+    <HeaderImage curPage={page == "home" ? "home" : "single"} goHome={goHome}/>
+      {page!="home" && <PageTitleButton text={page} goHome={goHome}/>}
       {page=="home" && <FrontPage setPage={setPage}/>}
-      {page=="contact" && <ContactPage setPage={setPage}/>}
+      {page=="art" && <ArtPage/>}
+      {page=="contact" && <ContactPage/>}
     </>
   );
 }

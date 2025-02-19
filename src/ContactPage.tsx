@@ -20,16 +20,10 @@ function PageContainer() {
     )
 }
 
-function ContactPage({setPage}: {setPage: (name: string)=>void}) {
-    const backHome = () => {setPage("home");}
+function ContactPage() {
     return (
         <>
         <PhoneImage/>
-        <img
-        id="single-page-header-image"
-        draggable="false"
-        onClick={backHome}
-        src="/contact_outline.svg"/>
         <PageContainer/>
         </>
     )

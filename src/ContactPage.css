@@ -2,7 +2,7 @@
     position:absolute;
     bottom: 5%;
     left: 6%;
-    height:60%;
+    height:50%;
     transform:rotateZ(-10deg);
     z-index: 12;
 }
@@ -16,7 +16,7 @@
     z-index:10;
 }
 
-#header-image.contact {
+#header-image.single {
     position: absolute;
     width:auto;
     max-height: 30%;
