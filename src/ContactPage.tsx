@@ -14,7 +14,7 @@ function PageContainer() {
         <>
         <div id="page">
             <h1>Reach the Mayor</h1>
-            <p>jaxsen (at) jaxsenville (dot) com</p>
+            <p>jaxsen (at) jxsen (dot) com</p>
         </div>
         </>
     )
