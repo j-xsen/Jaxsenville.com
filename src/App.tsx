@@ -1,9 +1,9 @@
 import './Font.css'
 import './App.css'
-import './DisplayChanges.css'
 import './ContactPage.tsx'
 import ContactPage from './ContactPage.tsx';
 import { useState } from 'react';
+import './DisplayChanges.css'
 
 type TsetPage = (name: string) => void;
 
@@ -25,16 +25,19 @@ function Menu({setPage}: {setPage: TsetPage}) {
     <>
       <MenuButton text="art" setPage={setPage}/>
       <MenuButton text="blahg" setPage={setPage}/>
-      <MenuButton text="music"setPage={setPage}/>
-      <MenuButton text="contact"setPage={setPage}/>
+      <MenuButton text="music" setPage={setPage}/>
+      <MenuButton text="contact" setPage={setPage}/>
     </>
   )
 }
 
-function HeaderImage() {
+function HeaderImage({ page, goHome }: { page: string, goHome: () => void }) {
+  const curPage = page;
   return (
     <>
       <img id="header-image"
+      className={curPage}
+      onClick={goHome}
       src="/jaxsenvillesign.png"
       draggable="false"/>
     </>
@@ -44,7 +47,6 @@ function HeaderImage() {
 function FrontPage({setPage}: {setPage: TsetPage}) {
   return (
     <>
-      <HeaderImage/>
       <Menu setPage={setPage}/>
     </>
   )
@@ -53,8 +55,11 @@ function FrontPage({setPage}: {setPage: TsetPage}) {
 function App() {
   const [page, setPage] = useState("home");
 
+  const goHome = () => setPage("home");
+
   return (
     <>
+    <HeaderImage page={page} goHome={goHome}/>
       {page=="home" && <FrontPage setPage={setPage}/>}
       {page=="contact" && <ContactPage setPage={setPage}/>}
     </>

@@ -6,6 +6,16 @@
     #art-button {
         bottom: 33%;
     }
+    #single-page-header-image {
+        height:15%;
+        top: 13%;
+        left: 4%;
+    }
+    #header-image {
+        width:75%;
+        left:12.5%;
+        margin-top: -1%;
+    }
 }
 
 @media (min-width:850px){
@@ -27,6 +37,9 @@
     #blahg-button {
         bottom: 20%;
     }
+    #single-page-header-image {
+        top: 10%;
+    }
 }
 
 @media (max-width: 320px) {
@@ -34,7 +47,7 @@
         bottom: 65%;
     }
     #blahg-button {
-        bottom: 42%;
+        bottom: 38%;
     }
     #music-button {
         bottom: 21%;
@@ -45,5 +58,54 @@
     }
     #header-image{
         margin-top:-4%;
+    }
+}
+
+@media (max-width: 575px) {
+    #telephone {
+        height: 40%;
+        visibility: visible;
+    }
+    #page h1 {
+        font-size: 1.75rem;
+        margin-top: 2rem;
+    }
+    #page p {
+        font-size: 1rem;
+    }
+    #single-page-header-image {
+        height:18%;
+        max-height: 5rem;
+        top: 30%;
+        left: 10%;
+    }
+    #header-image.contact {
+        top: 1%;
+        right: -1%;
+    }
+}
+
+@media (max-width: 400px) {
+    #telephone {
+        visibility: hidden;
+    }
+    #page {
+        right:4%;
+        width:92%;
+        min-width:0;
+    }
+    #page h1 {
+        text-align: center;
+        padding-right: 0;
+    }
+    #page p {
+        text-align: center;
+        padding-right: 0;
+    }
+    #single-page-header-image {
+        height:10%;
+        top: 36%;
+        left: 4%;
+        z-index:10;
     }
 }
