@@ -1,7 +1,5 @@
 import './ContactPage.css'
 
-type emptyFunction = () => void;
-
 function PhoneImage() {
     return (
         <>
@@ -22,29 +20,10 @@ function PageContainer() {
     )
 }
 
-function JaxsenvilleSign({backHome}: {backHome: emptyFunction}) {
+function ContactPage() {
     return (
         <>
-        <img
-        id="jaxsenvillesign"
-        draggable="false"
-        onClick={backHome}
-        src="/jaxsenvillesign.png"/>
-        </>
-    )
-}
-
-function ContactPage({setPage}: {setPage: (name: string)=>void}) {
-    const backHome = () => {setPage("home");}
-    return (
-        <>
-        <JaxsenvilleSign backHome={backHome}/>
         <PhoneImage/>
-        <img
-        id="single-page-header-image"
-        draggable="false"
-        onClick={backHome}
-        src="/contact_outline.svg"/>
         <PageContainer/>
         </>
     )
