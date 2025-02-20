@@ -1,4 +1,5 @@
-import './ContactPage.css'
+import '../css/SinglePage.css'
+import '../css/ContactPage.css'
 
 function PhoneImage() {
     return (

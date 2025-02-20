@@ -1,10 +1,10 @@
-import './Font.css'
-import './App.css'
+import '../css/Font.css'
+import '../css/App.css'
 import PageTitleButton from './PageTitleButton.tsx';
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
 import { useState } from 'react';
-import './DisplayChanges.css'
+import '../css/DisplayChanges.css'
 
 type TsetPage = (name: string) => void;
 
