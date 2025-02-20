@@ -79,8 +79,6 @@
     }
     #header-image.single {
         top: 1%;
-        left: auto;
-        right:auto;
     }
 }
 
@@ -120,9 +118,6 @@
 @media (min-height:800px) {
     #header-image {
         margin-top:10%;
-    }
-    #header-image.single {
-        margin-top:8%;
     }
     #art-button {
         bottom: 55%;
