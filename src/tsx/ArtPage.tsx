@@ -1,6 +1,5 @@
 import '../css/SinglePage.css'
 import '../css/ArtPage.css'
-import { useState } from 'react'
 
 interface IArtPiece {
     name: string,
@@ -43,8 +42,6 @@ function ArtGallery() {
         material: "Oil on Canvas",
         year: 2024
     }
-
-    const [curPiece, setCurPiece] = useState(0);
 
     return (
         <>
