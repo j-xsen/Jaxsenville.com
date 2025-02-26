@@ -16,6 +16,7 @@ function ArtPiece({ piece, spot }: { piece: IArtPiece, spot: number }) {
             <img src={`./art/${piece.url}.jpg`} className="ArtPiece"/>
             <h1>{piece.name}</h1>
             <p>{piece.year}</p>
+            <p>{piece.material}</p>
         </div>
         </>
     )
