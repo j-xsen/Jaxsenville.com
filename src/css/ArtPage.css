@@ -16,21 +16,14 @@
     margin-top:2rem;
     margin-bottom:2rem;
     max-width:95%;
+    filter: drop-shadow(0px 3px 10px black);
 }
 
 .Frame0 {
-    margin-top:12rem;
-}
-
-.Frame1 {
-    left:101%;
-}
-
-.Frame2 {
-    left: 200%;
-
+    margin-top:16rem;
 }
 
 .ArtPiece {
     max-width:100%;
+    filter: drop-shadow(0px 1px 3px gray);
 }
