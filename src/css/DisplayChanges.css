@@ -18,7 +18,7 @@
 
 @media (min-width:850px){
     #header-image{
-        width:60%;
+        width:auto;
         left:19%;
         margin-top:9%;
     }

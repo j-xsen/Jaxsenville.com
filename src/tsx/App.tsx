@@ -4,7 +4,7 @@ import PageTitleButton from './PageTitleButton.tsx';
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
 import { useState } from 'react';
-import '../css/DisplayChanges.css'
+// import '../css/DisplayChanges.css'
 
 type TsetPage = (name: string) => void;
 
