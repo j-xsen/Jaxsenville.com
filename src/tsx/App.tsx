@@ -3,7 +3,9 @@ import '../css/App.css'
 import PageTitleButton from './PageTitleButton.tsx';
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
+import MusicPage from './MusicPage.tsx';
 import { useState } from 'react';
+import BlahgPage from './BlahgPage.tsx';
 // import '../css/DisplayChanges.css'
 
 type TsetPage = (name: string) => void;
@@ -56,6 +58,8 @@ function App() {
       {page=="home" && <FrontPage setPage={setPage}/>}
       {page=="art" && <ArtPage/>}
       {page=="contact" && <ContactPage/>}
+      {page=="music" && <MusicPage/>}
+      {page=="blahg" && <BlahgPage/>}
     </>
   );
 }
