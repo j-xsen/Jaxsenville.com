@@ -1,35 +1,22 @@
 #single-page-header-image {
     position: absolute;
     max-width: 30%;
+    max-height:5rem;
     height:20%;
     transform:rotateZ(-20deg);
-    top: 13%;
+    top: 11rem;
     left: 4%;
     z-index:20;
 }
 
 #header-image.single {
     position: absolute;
-    max-height: 30%;
-    max-width: 100%;
-    width:auto;
-    top: 4%;
+    max-height:10rem;
+    top: 1rem;
     margin-top: 0;
     z-index: 13;
     right:2%;
     left:auto;
-}
-
-#page {
-    background-color: white;
-    position: absolute;
-    top: 40%;
-    height: 50%;
-    width: 65%;
-    min-width: 350px;
-    right: 7%;
-    text-align: center;
-    border: 3px solid black;
 }
 
 h1 {

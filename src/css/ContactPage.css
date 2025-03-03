@@ -6,3 +6,20 @@
     transform:rotateZ(-10deg);
     z-index: 12;
 }
+
+#page {
+    background-color: white;
+    position: absolute;
+    top: 16rem;
+    left: 2.5%;
+    padding-bottom: 1rem;
+    min-width: 350px;
+    text-align: center;
+    border: 3px solid black;
+}
+
+@media (max-width: 400px) {
+    #telephone {
+        visibility: hidden;
+    }
+}
