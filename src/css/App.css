@@ -13,6 +13,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-color: rgb(25, 86, 15);
+    overflow:hidden;
 }
 
 @keyframes rotate-header {
