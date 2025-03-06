@@ -2,24 +2,28 @@ import '../css/SinglePage.css'
 import '../css/MusicPage.css'
 import { format } from "date-fns"
 
+interface IBandcampAlbum {
+    id: number,
+    url: string
+}
+
 interface IBandcampEmbed {
     track_id: number,
-    name: string,
-    album_id?: number,
-    album_url?: string
+    name?: string,
+    album?: IBandcampAlbum
 }
 
 function BandcampEmbed({ embed }: { embed: IBandcampEmbed }) {
     const GetSrc = () => {
-        if (embed.album_id) {
-            return `https://bandcamp.com/EmbeddedPlayer/album=${embed.album_id}/size=small/bgcol=ffffff/linkcol=0687f5/track=${embed.track_id}/transparent=true/`;
+        if (embed.album) {
+            return `https://bandcamp.com/EmbeddedPlayer/album=${embed.album.id}/size=small/bgcol=ffffff/linkcol=0687f5/track=${embed.track_id}/transparent=true/`;
         } else {
             return `https://bandcamp.com/EmbeddedPlayer/track=${embed.track_id}/size=small/bgcol=ffffff/linkcol=7137dc/transparent=true/`;
         }
     }
     const GetHref = () => {
-        if (embed.album_url) {
-            return `https://jaxsen.bandcamp.com/album/${embed.album_url}`;
+        if (embed.album) {
+            return `https://jaxsen.bandcamp.com/album/${embed.album.url}`;
         } else {
             return `https://jaxsen.bandcamp.com/track/${embed.name}`;
         }
@@ -33,7 +37,7 @@ function BandcampEmbed({ embed }: { embed: IBandcampEmbed }) {
 
 interface ISong {
     pos: number,
-    name: string,
+    name?: string,
     embed?: IBandcampEmbed
 }
 
@@ -41,7 +45,7 @@ function Song({ song }: { song: ISong }) {
     return (
         <>
         <div className={`TrackFrame`}>
-            <p>{song.pos}. {song.name}</p>
+            <p>{song.pos}. {song.embed?.name ?? song.name}</p>
             {song.embed && <BandcampEmbed embed={song.embed}/>}
         </div>
         </>
@@ -58,7 +62,7 @@ interface IRelease {
 function Release({ release, top = false }: { release: IRelease, top?: boolean }) {
     const renderTracks = () => {
         return release.tracks.map(track => {
-            return <Song song={track}/>
+            return <Song key={track.pos} song={track}/>
         });
     };
     return (
@@ -74,43 +78,55 @@ function Release({ release, top = false }: { release: IRelease, top?: boolean })
 }
 
 function MusicPage() {
+    const snowballgray_BCAlbum: IBandcampAlbum = {
+        id: 895249410,
+        url: "snowball-gray"
+    }
     const jaxsenville: IRelease = {
         name: "Jaxsenville",
         date: new Date("2025-03-12 00:00"),
         cover: "jaxsenville",
         tracks: [
             {pos:1, name: "???"},
-            {pos:2, name: "Daydream", embed:{track_id:58503408, name:"Daydream"}},
-            {pos:3, name: "Snowball", embed:{track_id:3720036677, album_id:895249410, name: "Snowball", album_url: "snowball-gray"}},
+            {pos:2, embed:{track_id:58503408, name:"Daydream"}},
+            {pos:3, embed:{track_id:3720036677, name: "Snowball", album:snowballgray_BCAlbum}},
             {pos:4, name: "???"},
             {pos:5, name: "???"},
-            {pos:6, name: "Gray", embed:{track_id:3949460403, album_id:895249410, name: "Gray", album_url:"snowball-gray"}},
+            {pos:6, name: "Gray", embed:{track_id:3949460403, name: "Gray", album:snowballgray_BCAlbum}},
             {pos:7, name: "???"}
         ]
+    }
+    const the_play_BCAlbum: IBandcampAlbum = {
+        id: 340078928,
+        url: "the-play"
     }
     const the_play: IRelease = {
         name: "THE PLAY",
         date: new Date("2022-09-16 00:00"),
         cover: "the_play",
         tracks: [
-            {pos:1, name: "you gave me light"},
-            {pos:2, name: "impose"},
-            {pos:3, name: "shackles"},
-            {pos:4, name: "i gave you my heart"},
-            {pos:5, name: "i'd rather be alone"}
+            {pos:1, name: "you gave me light", embed:{track_id:449102977, album: the_play_BCAlbum}},
+            {pos:2, name: "impose", embed:{track_id:3264406368, album: the_play_BCAlbum}},
+            {pos:3, name: "shackles", embed:{track_id:3618544941, album: the_play_BCAlbum}},
+            {pos:4, name: "i gave you my heart", embed:{track_id:820391138, album: the_play_BCAlbum}},
+            {pos:5, name: "i'd rather be alone", embed:{track_id:3529285487, album: the_play_BCAlbum}}
         ]
+    }
+    const drywall_BCAlbum: IBandcampAlbum = {
+        id: 1910877188,
+        url: "drywall"
     }
     const drywall: IRelease = {
         name: "drywall",
         date: new Date("2020-08-03 00:00"),
         cover: "drywall",
         tracks: [
-            {pos:1, name:"clock"},
-            {pos:2, name:"creek"},
-            {pos:3, name:"earthquake"},
-            {pos:4, name:"i keep losing everyone"},
-            {pos:5, name:"soaked"},
-            {pos:6, name:"harry"}
+            {pos:1, name:"clock", embed:{track_id:2777273294, album: drywall_BCAlbum}},
+            {pos:2, name:"creek", embed:{track_id:904049715, album: drywall_BCAlbum}},
+            {pos:3, name:"earthquake", embed:{track_id:2454405647, album: drywall_BCAlbum}},
+            {pos:4, name:"i keep losing everyone", embed:{track_id:4176638993, album: drywall_BCAlbum}},
+            {pos:5, name:"soaked", embed:{track_id:3602910173, album: drywall_BCAlbum}},
+            {pos:6, name:"harry", embed:{track_id:4086286714, album: drywall_BCAlbum}}
         ]
     }
     return (
