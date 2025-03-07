@@ -92,7 +92,7 @@ function MusicPage() {
             {pos:3, embed:{track_id:3720036677, name: "Snowball", album:snowballgray_BCAlbum}},
             {pos:4, name: "???"},
             {pos:5, name: "???"},
-            {pos:6, name: "Gray", embed:{track_id:3949460403, name: "Gray", album:snowballgray_BCAlbum}},
+            {pos:6, embed:{track_id:3949460403, name: "Gray", album:snowballgray_BCAlbum}},
             {pos:7, name: "???"}
         ]
     }
