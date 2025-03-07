@@ -80,7 +80,7 @@ html {
 }
 
 #music-button:hover {
-    filter: drop-shadow(0 0.25rem 0.25rem rgb(62, 71, 255));
+    filter: drop-shadow(0 0.25rem 0.25rem rgb(62, 178, 255));
 }
 
 #contact-button {
@@ -90,5 +90,5 @@ html {
 }
 
 #contact-button:hover {
-    filter: drop-shadow(0 0.25rem 0.25rem rgb(23, 91, 11));
+    filter: drop-shadow(0 0.25rem 0.25rem rgb(35, 168, 12));
 }
