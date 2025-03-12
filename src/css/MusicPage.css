@@ -29,3 +29,9 @@
 .ReleaseFrame.Frame0 {
     margin-top: 18rem;
 }
+
+.icon {
+    height:1.25rem;
+    width:50%;
+    margin-left:25%;
+}
