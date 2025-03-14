@@ -9,14 +9,8 @@
     z-index:20;
 }
 
-#header-image.single {
-    position: absolute;
-    max-height:10rem;
-    top: 1rem;
-    margin-top: 0;
-    z-index: 13;
-    right:2%;
-    left:auto;
+#header-flex.single {
+    justify-content: right;
 }
 
 h1 {

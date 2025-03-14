@@ -1,33 +1,9 @@
-#MusicGallery {
-    position:absolute;
-    display:flex;
-    flex-wrap:wrap;
-    flex-flow: row wrap;
-    width:100%;
-    height:100%;
-    overflow:auto;
-    justify-content:center;
-}
-
-.ReleaseFrame {
-    background-color: white;
-    border:3px solid;
-    border-radius:6px;
-    margin-bottom:4rem;
-    width:80%;
-    filter: drop-shadow(0px 3px 10px black);
-}
-
 .ReleaseFrame img {
     max-width:100%;
 }
 
 .TrackFrame p {
     font-size:1.4rem;
-}
-
-.ReleaseFrame.Frame0 {
-    margin-top: 18rem;
 }
 
 .icon {

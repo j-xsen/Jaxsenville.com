@@ -1,5 +1,6 @@
 import '../css/SinglePage.css'
 import '../css/MusicPage.css'
+import '../css/Gallery.css'
 import { format } from "date-fns"
 
 interface IBandcampAlbum {
@@ -71,7 +72,7 @@ function Release({ release, top = false }: { release: IRelease, top?: boolean })
     }
     return (
         <>
-        <div className={`ReleaseFrame${ top ? " Frame0" : "" }`}>
+        <div className={`Frame ReleaseFrame${ top ? " Frame0" : "" }`}>
         <img src={`./covers/${release.cover}.jpg`}/>
         <h1>{release.name}</h1>
         <img src="./icon/spotify.svg" onClick={openSpotify} className="icon"/>
@@ -83,9 +84,9 @@ function Release({ release, top = false }: { release: IRelease, top?: boolean })
 }
 
 function MusicPage() {
-    const snowballgray_BCAlbum: IBandcampAlbum = {
-        id: 895249410,
-        url: "snowball-gray"
+    const jaxsenville_BCAlbum: IBandcampAlbum = {
+        id: 1359740859,
+        url: "jaxsenville"
     }
     const jaxsenville: IRelease = {
         name: "Jaxsenville",
@@ -93,13 +94,13 @@ function MusicPage() {
         cover: "jaxsenville",
         spotify: "https://open.spotify.com/album/1KNp1aqMrN0tTKJ1XAXW73?si=ACgFINEpR4u8fh7UOA8yjQ",
         tracks: [
-            {pos:1, name: "Alcraam"},
-            {pos:2, embed:{track_id:58503408, name:"Daydream"}},
-            {pos:3, embed:{track_id:3720036677, name: "Snowball", album:snowballgray_BCAlbum}},
-            {pos:4, name: "Even at my Worst"},
-            {pos:5, name: "Jaxsenology"},
-            {pos:6, embed:{track_id:3949460403, name: "Gray", album:snowballgray_BCAlbum}},
-            {pos:7, name: "You've Been There"}
+            {pos:1, embed: {track_id: 3773466243, name: "Alcraam", album:jaxsenville_BCAlbum}},
+            {pos:2, embed: {track_id: 58503408, name:"Daydream", album:jaxsenville_BCAlbum}},
+            {pos:3, embed: {track_id: 3720036677, name: "Snowball", album:jaxsenville_BCAlbum}},
+            {pos:4, embed: {track_id: 2807671321, name: "Even at my Worst", album:jaxsenville_BCAlbum}},
+            {pos:5, embed: {track_id: 2140179176, name: "Jaxsenology", album:jaxsenville_BCAlbum}},
+            {pos:6, embed: {track_id: 3949460403, name: "Gray", album:jaxsenville_BCAlbum}},
+            {pos:7, embed: {track_id: 1222075266, name: "You've Been There", album:jaxsenville_BCAlbum}}
         ]
     }
     const the_play_BCAlbum: IBandcampAlbum = {
@@ -139,7 +140,7 @@ function MusicPage() {
     }
     return (
         <>
-        <div id="MusicGallery">
+        <div className="Gallery">
             <Release release={jaxsenville} top={true}/>
             <Release release={the_play}/>
             <Release release={drywall}/>

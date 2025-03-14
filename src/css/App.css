@@ -5,6 +5,7 @@ html, body {
     margin: 0;
     text-decoration:wavy;
     font-family: Monotony;
+    overflow:hidden;
 }
 
 html {
@@ -30,10 +31,15 @@ html {
     100% {transform:rotate(1deg);transform:translateY(0rem);}
 }
 
+#header-flex {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
 #header-image {
+    z-index:30;
     max-height:10rem;
-    margin-left: 10%;
-    margin-top: 1.5rem;
     filter: drop-shadow(0px 0.25rem 0.5rem rgba(0,0,0,0.75));
     animation: rotate-header 10s linear infinite;
 }

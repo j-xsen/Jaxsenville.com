@@ -1,14 +1,14 @@
 import '../css/SinglePage.css'
 import '../css/ContactPage.css'
 
-function PhoneImage() {
-    return (
-        <>
-        <img id="telephone"
-        src="/phone_outline.svg"/>
-        </>
-    )
-}
+// function PhoneImage() {
+//     return (
+//         <>
+//         <img id="telephone"
+//         src="/phone_outline.svg"/>
+//         </>
+//     )
+// }
 
 function PageContainer() {
     return (
@@ -24,7 +24,6 @@ function PageContainer() {
 function ContactPage() {
     return (
         <>
-        <PhoneImage/>
         <PageContainer/>
         </>
     )

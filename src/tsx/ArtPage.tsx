@@ -1,3 +1,4 @@
+import '../css/Gallery.css'
 import '../css/SinglePage.css'
 import '../css/ArtPage.css'
 
@@ -11,7 +12,7 @@ interface IArtPiece {
 function ArtPiece({ piece, spot }: { piece: IArtPiece, spot: number }) {
     return(
         <>
-        <div className={`ArtFrame Frame${spot}`}>
+        <div className={`Frame${ spot == 0 ? " Frame0" : "" }`}>
             <img src={`./art/${piece.url}.jpg`} className="ArtPiece"/>
             <h1>{piece.name}</h1>
             <p>{piece.year}</p>
@@ -45,7 +46,7 @@ function ArtGallery() {
 
     return (
         <>
-        <div id="ArtGallery">
+        <div className="Gallery">
             <ArtPiece piece={genie} spot={0}/>
             <ArtPiece piece={mt_jaxsen} spot={1}/>
             <ArtPiece piece={good_ending} spot={2}/>

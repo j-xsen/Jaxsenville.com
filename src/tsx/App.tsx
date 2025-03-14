@@ -26,11 +26,13 @@ function MenuButton({ text, setPage }: { text: string, setPage: TsetPage }) {
 function HeaderImage({ curPage, goHome }: { curPage: string, goHome: () => void }) {
   return (
     <>
+    <div id="header-flex" className={`${curPage == "home" ? "" : "single"}`}>
       <img id="header-image"
       className={curPage}
       onClick={goHome}
       src="/jaxsenvillesign.png"
       draggable="false"/>
+    </div>
     </>
   )
 }
