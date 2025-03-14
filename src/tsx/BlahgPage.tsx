@@ -3,6 +3,7 @@ import '../css/BlahgPage.css';
 import { createClient, SupabaseClient } from "@supabase/supabase-js"
 import { format } from 'date-fns';
 import { useEffect, useState } from "react";
+import cachedPosts from "../../public/blahgPosts.json";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY as string;
@@ -12,37 +13,38 @@ type PostListing = {
     ID: number;
     title: string;
     created_at: string;
+    content: string;
+}
+
+function BlahgPost({ data }: { data: PostListing }) {
+    return (
+        <>
+        <p className="content">{data.content}</p>
+        </>
+    )
 }
 
 function ListedBlahgPost({ data }: { data: PostListing }) {
+    const [isOpen, setIsOpen] = useState(false);
+
+    function toggleOpen() {
+        setIsOpen(!isOpen);
+    }
+
     return (
-        <div className={`Frame Blahg${ top ? " Frame0" : "" }`}>
+        <div className={`Frame Blahg${ top ? " Frame0" : "" }${ isOpen ? " open" : "" }`} onClick={toggleOpen}>
             <h2>{data.title}</h2>
-            <p>{format(data.created_at, "d MMMM u")}</p>
+            <p className="date">{format(data.created_at, "d MMMM u")}</p>
+            { isOpen && <BlahgPost data={data} /> }
         </div>
     )
 }
 
 function BlahgPage() {
-    const [blahgPosts, setBlahgPosts] = useState<PostListing[]>([]);
-
-    useEffect(() => {
-        getBlahgPosts();
-    }, []);
-
-    async function getBlahgPosts() {
-        const { data, error } = await supabase.from("Blahg").select();
-        if (error) {
-            console.error("Error fetching blahg posts:", error);
-        } else {
-            setBlahgPosts(data);
-        }
-    }
-
     return (
         <>
         <div className="Gallery">
-            {blahgPosts.map((post) => (
+            {cachedPosts.map((post) => (
                 <ListedBlahgPost key={post.ID} data={post} />
             ))}
         </div>

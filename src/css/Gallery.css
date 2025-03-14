@@ -8,6 +8,7 @@
     height: 100%;
     overflow: auto;
     justify-content: center;
+    text-align: center;
     z-index: 10;
 }
 
