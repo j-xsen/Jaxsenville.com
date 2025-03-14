@@ -1,13 +1,8 @@
 import '../css/BlahgPage.css';
 
-import { createClient, SupabaseClient } from "@supabase/supabase-js"
 import { format } from 'date-fns';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import cachedPosts from "../../public/blahgPosts.json";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY as string;
-const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 
 type PostListing = {
     ID: number;
