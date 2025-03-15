@@ -1,12 +1,10 @@
 import '../css/Font.css'
 import '../css/App.css'
-import PageTitleButton from './PageTitleButton.tsx';
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
 import MusicPage from './MusicPage.tsx';
 import BlahgPage from './BlahgPage.tsx';
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router';
-// import '../css/DisplayChanges.css'
 
 function MenuButton({ text }: { text: string }) {
   return (
