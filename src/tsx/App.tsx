@@ -3,7 +3,7 @@ import '../css/App.css'
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
 import MusicPage from './MusicPage.tsx';
-import BlahgPage from './BlahgPage.tsx';
+import BlahgPage, { BlahgList, BlahgPost, PostNotFound } from './BlahgPage.tsx';
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router';
 
 function MenuButton({ text }: { text: string }) {
@@ -59,7 +59,10 @@ function App() {
         <Route path="art" element={ <ArtPage /> } />
         <Route path="contact" element={<ContactPage />} />
         <Route path="music" element={<MusicPage />} />
-        <Route path="blahg" element={<BlahgPage />} />
+        <Route path="blahg" element={<BlahgPage />}>
+          <Route index element={<BlahgList />} />
+          <Route path=":postId" element={<BlahgPost />} />
+        </Route>
       </Routes>
     </BrowserRouter>
     </>

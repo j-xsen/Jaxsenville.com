@@ -3,7 +3,7 @@ import { Link } from "react-router";
 function PageTitleButton({ text }: { text: string } ) {
     return (
         <>
-        <Link to="/">
+        <Link to={`/${text}`}>
             <img
             id="single-page-header-image"
             draggable="false"
