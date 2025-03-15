@@ -1,5 +1,6 @@
 import '../css/SinglePage.css'
 import '../css/ContactPage.css'
+import PageTitleButton from './PageTitleButton';
 
 // function PhoneImage() {
 //     return (
@@ -24,6 +25,7 @@ function PageContainer() {
 function ContactPage() {
     return (
         <>
+        <PageTitleButton text="contact"/>
         <PageContainer/>
         </>
     )

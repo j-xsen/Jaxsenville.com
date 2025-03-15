@@ -1,11 +1,14 @@
-function PageTitleButton({text, goHome}: {text: string, goHome: () => void}) {
+import { Link } from "react-router";
+
+function PageTitleButton({ text }: { text: string } ) {
     return (
         <>
-        <img
-        id="single-page-header-image"
-        draggable="false"
-        onClick={goHome}
-        src={`/${text}_outline.svg`}/>
+        <Link to="/">
+            <img
+            id="single-page-header-image"
+            draggable="false"
+            src={`/${text}_outline.svg`}/>
+        </Link>
         </>
     )
 }

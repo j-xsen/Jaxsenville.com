@@ -4,64 +4,66 @@ import PageTitleButton from './PageTitleButton.tsx';
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
 import MusicPage from './MusicPage.tsx';
-import { useState } from 'react';
 import BlahgPage from './BlahgPage.tsx';
+import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router';
 // import '../css/DisplayChanges.css'
 
-type TsetPage = (name: string) => void;
-
-function MenuButton({ text, setPage }: { text: string, setPage: TsetPage }) {
-  const changePage = () => {setPage(text);};
+function MenuButton({ text }: { text: string }) {
   return (
     <>
+    <Link to={`/${text}`}>
       <img id={`${text}-button`}
       className="menu-button"
       draggable="false"
-      onClick={changePage}
       src={`./${text}_outline.svg`}/>
+    </Link>
     </>
   );
 }
 
-function HeaderImage({ curPage, goHome }: { curPage: string, goHome: () => void }) {
+function HeaderImage() {
+
+  function getClassName () {
+    return useLocation().pathname == "/" ? "home" : "single"
+  }
+
   return (
     <>
-    <div id="header-flex" className={`${curPage == "home" ? "" : "single"}`}>
+    <Link to="/">
+    <div id="header-flex" className={getClassName()}>
       <img id="header-image"
-      className={curPage}
-      onClick={goHome}
       src="/jaxsenvillesign.png"
       draggable="false"/>
     </div>
+    </Link>
     </>
   )
 }
 
-function FrontPage({setPage}: {setPage: TsetPage}) {
+function FrontPage() {
   return (
     <>
-      <MenuButton text="art" setPage={setPage}/>
-      <MenuButton text="blahg" setPage={setPage}/>
-      <MenuButton text="music" setPage={setPage}/>
-      <MenuButton text="contact" setPage={setPage}/>
+      <MenuButton text="art" />
+      <MenuButton text="blahg" />
+      <MenuButton text="music" />
+      <MenuButton text="contact" />
     </>
   )
 }
 
 function App() {
-  const [page, setPage] = useState("home");
-
-  const goHome = () => setPage("home");
-
   return (
     <>
-    <HeaderImage curPage={page == "home" ? "home" : "single"} goHome={goHome}/>
-      {page!="home" && <PageTitleButton text={page} goHome={goHome}/>}
-      {page=="home" && <FrontPage setPage={setPage}/>}
-      {page=="art" && <ArtPage/>}
-      {page=="contact" && <ContactPage/>}
-      {page=="music" && <MusicPage/>}
-      {page=="blahg" && <BlahgPage/>}
+    <BrowserRouter>
+      <HeaderImage />
+      <Routes>
+        <Route index element={<FrontPage />} />
+        <Route path="art" element={ <ArtPage /> } />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="music" element={<MusicPage />} />
+        <Route path="blahg" element={<BlahgPage />} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

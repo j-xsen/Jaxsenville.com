@@ -2,6 +2,7 @@ import '../css/SinglePage.css'
 import '../css/MusicPage.css'
 import '../css/Gallery.css'
 import { format } from "date-fns"
+import PageTitleButton from './PageTitleButton'
 
 interface IBandcampAlbum {
     id: number,
@@ -140,6 +141,7 @@ function MusicPage() {
     }
     return (
         <>
+        <PageTitleButton text="music"/>
         <div className="Gallery">
             <Release release={jaxsenville} top={true}/>
             <Release release={the_play}/>

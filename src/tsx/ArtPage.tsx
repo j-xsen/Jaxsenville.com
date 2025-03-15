@@ -1,6 +1,7 @@
 import '../css/Gallery.css'
 import '../css/SinglePage.css'
 import '../css/ArtPage.css'
+import PageTitleButton from './PageTitleButton'
 
 interface IArtPiece {
     name: string,
@@ -58,6 +59,7 @@ function ArtGallery() {
 function ArtPage() {
     return (
         <>
+        <PageTitleButton text="art"/>
         <ArtGallery/>
         </>
     )

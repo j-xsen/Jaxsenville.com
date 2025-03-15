@@ -3,6 +3,7 @@ import '../css/BlahgPage.css';
 import { format } from 'date-fns';
 import { useState } from "react";
 import cachedPosts from "../../public/blahgPosts.json";
+import PageTitleButton from './PageTitleButton';
 
 type PostListing = {
     ID: number;
@@ -38,6 +39,7 @@ function ListedBlahgPost({ data }: { data: PostListing }) {
 function BlahgPage() {
     return (
         <>
+        <PageTitleButton text="blahg"/>
         <div className="Gallery">
             {cachedPosts.map((post) => (
                 <ListedBlahgPost key={post.ID} data={post} />
