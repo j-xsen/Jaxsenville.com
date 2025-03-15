@@ -6,11 +6,12 @@
   "scripts": {
     "fetch-posts": "node fetchposts.js",
     "dev": "vite",
-    "build": "npm run fetch-posts && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-router/dev": "^7.3.0",
     "@supabase/supabase-js": "^2.49.1",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",

@@ -3,7 +3,7 @@ import '../css/App.css'
 import ContactPage from './ContactPage.tsx';
 import ArtPage from './ArtPage.tsx';
 import MusicPage from './MusicPage.tsx';
-import BlahgPage, { BlahgList, BlahgPost, PostNotFound } from './BlahgPage.tsx';
+import BlahgPage, { BlahgList, BlahgPost } from './BlahgPage.tsx';
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router';
 
 function MenuButton({ text }: { text: string }) {
