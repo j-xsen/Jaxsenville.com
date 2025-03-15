@@ -1,90 +1,11 @@
-import '../css/SinglePage.css'
-import '../css/MusicPage.css'
-import '../css/Gallery.css'
-import { format } from "date-fns"
-import PageTitleButton from './PageTitleButton'
+import { IBandcampAlbum } from "./components/BandcampEmbed"
+import { IRelease, Release } from "./components/Release"
+import PageTitleButton from "../../components/PageTitleButton."
 
-interface IBandcampAlbum {
-    id: number,
-    url: string
-}
+import '../../components/Gallery.css'
+import './Page.css'
 
-interface IBandcampEmbed {
-    track_id: number,
-    name?: string,
-    album?: IBandcampAlbum
-}
-
-function BandcampEmbed({ embed }: { embed: IBandcampEmbed }) {
-    const GetSrc = () => {
-        if (embed.album) {
-            return `https://bandcamp.com/EmbeddedPlayer/album=${embed.album.id}/size=small/bgcol=ffffff/linkcol=0687f5/track=${embed.track_id}/transparent=true/`;
-        } else {
-            return `https://bandcamp.com/EmbeddedPlayer/track=${embed.track_id}/size=small/bgcol=ffffff/linkcol=7137dc/transparent=true/`;
-        }
-    }
-    const GetHref = () => {
-        if (embed.album) {
-            return `https://jaxsen.bandcamp.com/album/${embed.album.url}`;
-        } else {
-            return `https://jaxsen.bandcamp.com/track/${embed.name}`;
-        }
-    }
-    return (
-        <>
-            <iframe style={{ border: 0, width: '100%', height: '42px' }} src={GetSrc()} seamless><a href={GetHref()}>{embed.name} by jaxsen</a></iframe>
-        </>
-    )
-}
-
-interface ISong {
-    pos: number,
-    name?: string,
-    embed?: IBandcampEmbed
-}
-
-function Song({ song }: { song: ISong }) {
-    return (
-        <>
-        <div className={`TrackFrame`}>
-            <p>{song.pos}. {song.embed?.name ?? song.name}</p>
-            {song.embed && <BandcampEmbed embed={song.embed}/>}
-        </div>
-        </>
-    )
-}
-
-interface IRelease {
-    name: string,
-    date: Date,
-    cover: string,
-    spotify: string,
-    tracks: ISong[]
-}
-
-function Release({ release, top = false }: { release: IRelease, top?: boolean }) {
-    const renderTracks = () => {
-        return release.tracks.map(track => {
-            return <Song key={track.pos} song={track}/>
-        });
-    };
-    const openSpotify = () => {
-        window.open(release.spotify, "_blank");
-    }
-    return (
-        <>
-        <div className={`Frame ReleaseFrame${ top ? " Frame0" : "" }`}>
-        <img src={`./covers/${release.cover}.jpg`}/>
-        <h1>{release.name}</h1>
-        <img src="./icon/spotify.svg" onClick={openSpotify} className="icon"/>
-        <p><i>{format(release.date, "d MMMM u")}</i></p>
-            {renderTracks()}
-        </div>
-        </>
-    )
-}
-
-function MusicPage() {
+export default function Page() {
     const jaxsenville_BCAlbum: IBandcampAlbum = {
         id: 1359740859,
         url: "jaxsenville"
@@ -150,5 +71,3 @@ function MusicPage() {
         </>
     )
 }
-
-export default MusicPage;

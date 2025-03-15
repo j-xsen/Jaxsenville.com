@@ -1,8 +1,3 @@
-import '../css/Gallery.css'
-import '../css/SinglePage.css'
-import '../css/ArtPage.css'
-import PageTitleButton from './PageTitleButton'
-
 interface IArtPiece {
     name: string,
     url: string,
@@ -23,7 +18,7 @@ function ArtPiece({ piece, spot }: { piece: IArtPiece, spot: number }) {
     )
 }
 
-function ArtGallery() {
+export default function ArtGallery() {
     const genie: IArtPiece = {
         name: "Genie",
         url: "genie",
@@ -55,14 +50,3 @@ function ArtGallery() {
         </>
     )
 }
-
-function ArtPage() {
-    return (
-        <>
-        <PageTitleButton text="art"/>
-        <ArtGallery/>
-        </>
-    )
-}
-
-export default ArtPage;

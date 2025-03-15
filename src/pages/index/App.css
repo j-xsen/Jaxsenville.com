@@ -1,47 +1,7 @@
-html, body {
-    height: 100%;
-    max-height:100%;
-    max-width:100%;
-    margin: 0;
-    text-decoration:wavy;
-    font-family: Monotony;
-    overflow:hidden;
-}
-
-html {
-    background-image: url("/bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgb(25, 86, 15);
-    overflow:hidden;
-}
-
-@keyframes rotate-header {
-    0% {transform: rotate(2deg);}
-    25% {transform: rotate(-1deg);}
-    50% {transform: rotate(1deg);}
-    75% {transform: rotate(-2deg);}
-    100% {transform: rotate(2deg);}
-}
-
 @keyframes rotate-menu {
     0% {transform:rotate(1deg);transform:translateY(0rem);}
     50% {transform:rotate(-1deg);transform:translateY(0.2rem);}
     100% {transform:rotate(1deg);transform:translateY(0rem);}
-}
-
-#header-flex {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-}
-
-#header-image {
-    z-index:30;
-    max-height:10rem;
-    filter: drop-shadow(0px 0.25rem 0.5rem rgba(0,0,0,0.75));
-    animation: rotate-header 10s linear infinite;
 }
 
 .menu-button {

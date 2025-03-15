@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'Monotony';
+    src: url('/Monotony-Regular.woff2') format('woff2'),
+        url('/Monotony-Regular.woff') format('woff'),
+        url('/Monotony-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+html, body {
+    height: 100%;
+    max-height:100%;
+    max-width:100%;
+    margin: 0;
+    text-decoration:wavy;
+    font-family: Monotony;
+    overflow:hidden;
+}
+
+html {
+    background-image: url("/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(25, 86, 15);
+    overflow:hidden;
+}
+
+@keyframes rotate-header {
+    0% {transform: rotate(2deg);}
+    25% {transform: rotate(-1deg);}
+    50% {transform: rotate(1deg);}
+    75% {transform: rotate(-2deg);}
+    100% {transform: rotate(2deg);}
+}
+
+#header-flex {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#header-flex.single {
+    justify-content: right;
+}
+
+#header-image {
+    z-index:30;
+    max-height:10rem;
+    filter: drop-shadow(0px 0.25rem 0.5rem rgba(0,0,0,0.75));
+    animation: rotate-header 10s linear infinite;
+}
+
+#single-page-header-image {
+    position: absolute;
+    max-width: 30%;
+    max-height:5rem;
+    height:20%;
+    transform:rotateZ(-20deg);
+    top: 11rem;
+    left: 4%;
+    z-index:20;
+}
+
+h1 {
+    margin-top:4rem;
+    text-align: center;
+    padding-right: 0;
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.25rem;
+    text-align: center;
+    padding-right: 0;
+}
