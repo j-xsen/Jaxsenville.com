@@ -5,7 +5,7 @@ interface IArtPiece {
     year: number
 }
 
-function ArtPiece({ piece, spot }: { piece: IArtPiece, spot: number }) {
+function ArtPiece({ piece, spot = 1 }: { piece: IArtPiece, spot?: number }) {
     return(
         <>
         <div className={`Frame${ spot == 0 ? " Frame0" : "" }`}>
@@ -42,11 +42,9 @@ export default function ArtGallery() {
 
     return (
         <>
-        <div className="Gallery">
-            <ArtPiece piece={genie} spot={0}/>
-            <ArtPiece piece={mt_jaxsen} spot={1}/>
-            <ArtPiece piece={good_ending} spot={2}/>
-        </div>
+        <ArtPiece piece={genie} spot={0}/>
+        <ArtPiece piece={mt_jaxsen} />
+        <ArtPiece piece={good_ending} />
         </>
     )
 }

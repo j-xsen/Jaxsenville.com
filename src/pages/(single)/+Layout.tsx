@@ -12,7 +12,9 @@ function Layout({ children }: { children: React.ReactNode}) {
   return (
     <>
       <PageTitleButton text={data.path} />
-      <div>{children}</div>   
+      <div className="Gallery">
+        {children}
+      </div>
       </>
   )
 }

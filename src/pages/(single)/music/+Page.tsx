@@ -60,11 +60,9 @@ export default function Page() {
     }
     return (
         <>
-        <div className="Gallery">
             <Release release={jaxsenville} top={true}/>
             <Release release={the_play}/>
             <Release release={drywall}/>
-        </div>
         </>
     )
 }
