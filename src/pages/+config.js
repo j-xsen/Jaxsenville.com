@@ -1,5 +1,5 @@
 import vikeReact from 'vike-react/config'
-import { Layout } from './Layout.jsx'
+import { Layout } from './Layout.tsx'
 
 export default {
     Layout: Layout,
