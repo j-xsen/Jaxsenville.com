@@ -6,25 +6,15 @@
 
 .Frame.Blahg.open {
     height:auto;
-    padding-left: 0rem;
-    padding-right: 0rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
-.Blahg h2 {
+h2 {
     color: orchid;
     text-decoration: underline;
 }
 
-.Blahg p {
-    text-align: left;
-    margin-right: 1rem;
-    margin-left: 1rem;
-}
-
-.Blahg p.content {
-    white-space: pre-wrap;
-}
-
-.Blahg p.date {
+p.date {
     text-align:center;
 }

@@ -1,7 +1,7 @@
 import ListedBlahgPost from "./components/ListedBlahgPost"
 
-import './Page.css'
 import '../../../css/Gallery.css'
+import './Page.css'
 import { useData } from "vike-react/useData"
 import type { Data } from "./+data"
 
