@@ -1,8 +1,6 @@
 import { IBandcampAlbum } from "./components/BandcampEmbed"
 import { IRelease, Release } from "./components/Release"
-import PageTitleButton from "../../components/PageTitleButton."
 
-import '../../components/Gallery.css'
 import './Page.css'
 
 export default function Page() {
@@ -62,7 +60,6 @@ export default function Page() {
     }
     return (
         <>
-        <PageTitleButton text="music"/>
         <div className="Gallery">
             <Release release={jaxsenville} top={true}/>
             <Release release={the_play}/>

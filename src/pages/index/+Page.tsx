@@ -1,7 +1,7 @@
-import './App.css'
+import './Page.css'
 import MenuButtons from './components/MenuButtons';
 
-export default function App() {
+export default function Page() {
   return (
     <>
     <MenuButtons />
