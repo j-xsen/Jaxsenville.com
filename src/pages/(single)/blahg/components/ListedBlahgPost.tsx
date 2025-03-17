@@ -5,7 +5,7 @@ export default function ListedBlahgPost({ data, top = false }: { data: PostListi
     return (
         <>
         <div onClick={() => { window.location.replace('/blahg/' + data.ID) }} className={`Frame Blahg${ top ? " Frame0" : "" }`}>
-            <h2>{data.title}</h2>
+            <h3>{data.title}</h3>
             <p className="date">{format(data.created_at, "d MMMM u")}</p>
         </div>
         </>

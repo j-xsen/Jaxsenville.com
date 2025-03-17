@@ -8,7 +8,7 @@ function MenuButton({ text }: { text: string }) {
         draggable="false"
         src={`./${text}_outline.svg`}
         alt={title}/>
-        </a>
+      </a>
       </>
     );
   }

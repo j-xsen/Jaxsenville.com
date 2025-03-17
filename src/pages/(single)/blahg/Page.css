@@ -10,9 +10,11 @@
     padding-right: 1rem;
 }
 
-h2 {
+h3 {
     color: orchid;
     text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 
 p.date {

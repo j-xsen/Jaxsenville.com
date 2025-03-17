@@ -6,6 +6,7 @@ export default function PageTitleButton({ text }: { text: string } ) {
             <img
             id="single-page-header-image"
             draggable="false"
+            title={`${title} page`}
             src={`/${text}_outline.svg`}
             alt={title}/>
             </a>

@@ -1,9 +1,12 @@
 import { IBandcampAlbum } from "./components/BandcampEmbed"
 import { IRelease, Release } from "./components/Release"
+import { useMetadata } from 'vike-metadata-react';
 
 import './Page.css'
 
 export default function Page() {
+    useMetadata({title: "Music | Jaxsenville"})
+    
     const jaxsenville_BCAlbum: IBandcampAlbum = {
         id: 1359740859,
         url: "jaxsenville"

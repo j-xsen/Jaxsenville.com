@@ -6,6 +6,7 @@ export default function HeaderImage() {
       <img id="header-image"
       src="/jaxsenvillesign.png"
       draggable="false"
+      title="Home page"
       alt="Jaxsenville Sign" />
     </div>
     </a>
