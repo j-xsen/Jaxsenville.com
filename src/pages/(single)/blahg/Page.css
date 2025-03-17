@@ -1,13 +1,18 @@
 .Frame.Blahg {
-    padding-left: 2rem;
-    padding-right: 2rem;
-    height: 7rem;
+    height: 8rem;
+    min-width:50%;
+}
+
+.Frame.Blahg:hover {
+    cursor: pointer;
 }
 
 .Frame.Blahg.open {
     height:auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+}
+
+.Frame.Blahg.open:hover {
+    cursor: default;
 }
 
 h3 {
@@ -15,6 +20,8 @@ h3 {
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.6rem;
+    margin-left:2rem;
+    margin-right:2rem;
 }
 
 p.date {

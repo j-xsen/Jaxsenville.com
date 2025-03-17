@@ -9,7 +9,7 @@ function ArtPiece({ piece, spot = 1 }: { piece: IArtPiece, spot?: number }) {
     return(
         <>
         <div className={`Frame${ spot == 0 ? " Frame0" : "" }`}>
-            <img src={`./art/${piece.url}.jpg`} className="ArtPiece"/>
+            <img src={`./images/${piece.url}.avif`} className="ArtPiece"/>
             <h1>{piece.name}</h1>
             <p>{piece.year}</p>
             <p>{piece.material}</p>

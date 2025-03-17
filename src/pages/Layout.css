@@ -20,7 +20,7 @@ html, body {
 }
 
 html {
-    background-image: url("/bg.jpg");
+    background-image: url("/images/background.avif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

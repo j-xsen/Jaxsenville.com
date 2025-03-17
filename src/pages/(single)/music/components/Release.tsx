@@ -21,7 +21,7 @@ export function Release({ release, top = false }: { release: IRelease, top?: boo
     return (
         <>
         <div className={`Frame ReleaseFrame${ top ? " Frame0" : "" }`}>
-        <img src={`./covers/${release.cover}.jpg`}/>
+        <img src={`./images/covers/${release.cover}.avif`}/>
         <h1>{release.name}</h1>
         <img src="./icon/spotify.svg" onClick={openSpotify} className="icon"/>
         <p><i>{format(release.date, "d MMMM u")}</i></p>
