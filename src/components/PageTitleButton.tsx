@@ -8,7 +8,7 @@ export default function PageTitleButton({ text }: { text: string } ) {
             draggable="false"
             title={`${title} page`}
             src={`/${text}_outline.svg`}
-            alt={title}/>
+            alt={title} />
             </a>
         </>
     )

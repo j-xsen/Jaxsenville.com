@@ -9,12 +9,12 @@ export interface IBandcampEmbed {
     album?: IBandcampAlbum
 }
 
-export function BandcampEmbed({ embed }: { embed: IBandcampEmbed }) {
+export default function BandcampEmbed({ embed }: { embed: IBandcampEmbed }) {
     const GetSrc = () => {
         if (embed.album) {
-            return `https://bandcamp.com/EmbeddedPlayer/album=${embed.album.id}/size=small/bgcol=ffffff/linkcol=0687f5/track=${embed.track_id}/transparent=true/`;
+            return `https://bandcamp.com/EmbeddedPlayer/album=${embed.album.id}/size=small/bgcol=ffffff/linkcol=0687f5/track=${embed.track_id}/transparent=true`;
         } else {
-            return `https://bandcamp.com/EmbeddedPlayer/track=${embed.track_id}/size=small/bgcol=ffffff/linkcol=7137dc/transparent=true/`;
+            return `https://bandcamp.com/EmbeddedPlayer/track=${embed.track_id}/size=small/bgcol=ffffff/linkcol=7137dc/transparent=true`;
         }
     }
     const GetHref = () => {
@@ -26,7 +26,9 @@ export function BandcampEmbed({ embed }: { embed: IBandcampEmbed }) {
     }
     return (
         <>
-            <iframe style={{ border: 0, width: '100%', height: '42px' }} src={GetSrc()} seamless><a href={GetHref()}>{embed.name} by jaxsen</a></iframe>
+            <iframe style={{ border: 0, width: '100%', height: '42px' }} src={GetSrc()} seamless>
+                <a href={GetHref()} title={`Open ${embed.name} on Bandcamp`}>{embed.name} by jaxsen</a>
+            </iframe>
         </>
     )
 }

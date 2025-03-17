@@ -1,4 +1,6 @@
-import { IBandcampEmbed, BandcampEmbed } from "./BandcampEmbed"
+import { clientOnly } from "vike-react/clientOnly"
+import { IBandcampEmbed } from "./BandcampEmbed"
+const BandcampEmbed = clientOnly(() => import("./BandcampEmbed.tsx"))
 
 export interface ISong {
     pos: number,

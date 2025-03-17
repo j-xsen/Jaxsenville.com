@@ -7,7 +7,8 @@ function MenuButton({ text }: { text: string }) {
         className="menu-button"
         draggable="false"
         src={`./${text}_outline.svg`}
-        alt={title}/>
+        alt={title}
+        title={`${title} page`}/>
       </a>
       </>
     );
