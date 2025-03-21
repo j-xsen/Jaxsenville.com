@@ -1,9 +1,12 @@
 export { Layout }
 
-import React from 'react'
+import React, { StrictMode } from 'react'
 import { useMetadata } from 'vike-metadata-react'
 import './Layout.css'
 import HeaderImage from '../components/HeaderImage'
+import { clientOnly } from 'vike-react/clientOnly'
+
+const ClientPostHog = clientOnly(async () => (await import('posthog-js/react')).PostHogProvider)
 
 
 useMetadata.setGlobalDefaults({
@@ -17,11 +20,18 @@ useMetadata.setGlobalDefaults({
   }
 })
 
-function Layout({ children }: { children: React.ReactNode }) {
+const options = {
+  api_host: import.meta.env.VITE_POSTHOG_HOST as string
+}
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+    <StrictMode>
       <HeaderImage />
-      <div>{children}</div>   
-      </>
+      <div>{children}</div>
+      <ClientPostHog apiKey={import.meta.env.VITE_POSTHOG_KEY as string} options={options}/>
+    </StrictMode>
+    </>
   )
 }

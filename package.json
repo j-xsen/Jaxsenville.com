@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "fetch-posts": "node fetchposts.js",
     "dev": "vike dev",
     "build": "tsc -b && vike build",
     "lint": "eslint .",
@@ -14,6 +13,7 @@
     "@supabase/supabase-js": "^2.49.1",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
+    "posthog-js": "^1.232.4",
     "react": "^19.0.0",
     "vike": "^0.4.225",
     "vike-metadata-react": "^1.0.2",
