@@ -6,7 +6,7 @@ import './Layout.css'
 import HeaderImage from '../components/HeaderImage'
 import { clientOnly } from 'vike-react/clientOnly'
 
-const ClientPostHog = clientOnly(async () => (await import('posthog-js/react')).PostHogProvider)
+const PostHogPageView = clientOnly(() => import('../components/PostHogPageView'))
 
 
 useMetadata.setGlobalDefaults({
@@ -20,17 +20,13 @@ useMetadata.setGlobalDefaults({
   }
 })
 
-const options = {
-  api_host: import.meta.env.VITE_POSTHOG_HOST as string
-}
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
     <StrictMode>
       <HeaderImage />
       <div>{children}</div>
-      <ClientPostHog apiKey={import.meta.env.VITE_POSTHOG_KEY as string} options={options}/>
+      <PostHogPageView />
     </StrictMode>
     </>
   )
