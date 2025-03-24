@@ -3,4 +3,5 @@ export default interface PostListing {
     title: string;
     created_at: string;
     content: string;
+    url: string;
 }

@@ -3,7 +3,9 @@ import { Layout } from './Layout.tsx'
 
 export default {
     Layout: Layout,
-    prerender: true,
+    prerender: {
+        partial: true
+    },
     stream: true,
     extends: [vikeReact]
 }

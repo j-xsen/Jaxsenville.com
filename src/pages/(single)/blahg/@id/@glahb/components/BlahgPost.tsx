@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import PostListing from '../../types/PostListing'
+import PostListing from '../../../types/PostListing'
 
 export default function BlahgPost({ data }: { data: PostListing }) {
     return (
