@@ -1,11 +1,13 @@
-import { supabase } from "../../../utils/supabase"
+import client from "../../../utils/contentful";
+import { BlahgEntrySkeleton } from "./types/BlahgEntrySkeleton";
 
-export { data }
-export type Data = Awaited<ReturnType<typeof data>>
+export { data };
+export type Data = Awaited<ReturnType<typeof data>>;
 
 async function data() {
-    const { data: posts } = await supabase.from('Blahg').select('ID, created_at, title, content, url')
-    let path = "blahg"
+	const posts = await client.getEntries<BlahgEntrySkeleton>({
+		content_type: "blahg",
+	});
 
-    return { path, posts }
+	return { path: "blahg", posts };
 }
