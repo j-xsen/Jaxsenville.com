@@ -16,6 +16,7 @@ export default function Page() {
 			{data.posts?.items.map((post, index) => {
 				if (!post.fields) return null;
 				const postListing: PostListing = {
+					ID: post.sys.id,
 					url: post.fields.url,
 					created_at: post.fields.createdAt,
 					title: post.fields.title,
