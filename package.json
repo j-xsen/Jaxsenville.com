@@ -10,7 +10,6 @@
     "preview": "vike build && vike preview"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.4",
     "contentful": "^11.5.14",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",

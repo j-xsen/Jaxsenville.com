@@ -3,26 +3,31 @@ import { useData } from "vike-react/useData";
 import BlahgPost from "./components/BlahgPost";
 import "./Page.css";
 import { useMetadata } from "vike-metadata-react";
+import Post from "../types/Post";
 
 export default function Page() {
 	const data = useData<Data>();
 
-	useMetadata({ title: `${data.title} | Blahg | Jaxsenville` });
+	useMetadata({
+		title: `${data.post.items[0].fields.title} | Blahg | Jaxsenville`,
+	});
 
-	if (data.post.items[0]) {
-		return (
-			<>
-				<div className="Gallery">
-					{data.post && <BlahgPost data={data.post.items[0]} />}
-				</div>
-			</>
-		);
-	} else {
-		return (
-			<>
-				<h1 style={{ marginTop: "7rem" }}>Blog not found.</h1>
-				<p>{JSON.stringify(data.post.items[0].fields.title)}</p>
-			</>
-		);
+	const thisItem = data.post.items[0];
+
+	if (!thisItem) {
+		return <h1 style={{ marginTop: "7rem" }}>Blog not found.</h1>;
 	}
+	const blahg: Post = {
+		content: String(thisItem.fields.content),
+		ID: thisItem.sys.id,
+		title: String(thisItem.fields.title),
+		created_at: String(thisItem.fields.createdAt),
+		url: String(thisItem.fields.url),
+	};
+
+	return (
+		<>
+			<div className="Gallery">{data.post && <BlahgPost data={blahg} />}</div>
+		</>
+	);
 }

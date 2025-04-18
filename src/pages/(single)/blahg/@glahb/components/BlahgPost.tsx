@@ -1,15 +1,20 @@
 import { format } from "date-fns";
-import { BlahgEntrySkeleton } from "../../types/BlahgEntrySkeleton";
+import Post from "../../types/Post";
 
-export default function BlahgPost({ data }: { data: BlahgEntrySkeleton }) {
+export default function BlahgPost({ data }: { data: Post }) {
+	if (!data) {
+		return (
+			<>
+				<h1>Blahg not found</h1>
+			</>
+		);
+	}
 	return (
 		<>
 			<div className={`Frame Frame0 Blahg open`}>
-				<h3>{data.fields.title.toString()}</h3>
-				<p className="date">
-					{format(data.fields.createdAt.toString(), "d MMMM u")}
-				</p>
-				<p className="content">{data.fields.content.toString()}</p>
+				<h3>{data.title}</h3>
+				<p className="date">{format(data.created_at, "d MMMM u")}</p>
+				<p className="content">{data.content}</p>
 			</div>
 		</>
 	);
