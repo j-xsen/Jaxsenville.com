@@ -8,7 +8,7 @@
     "build": "tsc -b && vike build",
     "lint": "eslint .",
     "preview": "vike build && vike preview",
-    "generate-types": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
+    "generate-types": "contentful-typescript-codegen --config contentful.config.ts --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
     "contentful": "^11.5.14",

@@ -7,7 +7,7 @@ export interface IArtFields {
   title: string;
 
   /** date */
-  date?: string | undefined;
+  date: string;
 
   /** media */
   media?: string | undefined;
