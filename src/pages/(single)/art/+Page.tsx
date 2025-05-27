@@ -3,7 +3,7 @@ import './Page.css'
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data.tsx";
 import {ArtPiece} from './components/ArtPiece.tsx';
-import {IArt} from "../../../../@types/generated/contentful";
+import {IArt} from "../../../types/contentful";
 
 export default function Page() {
     useMetadata({

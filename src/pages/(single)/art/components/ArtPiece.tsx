@@ -1,7 +1,7 @@
 import {format} from "date-fns";
 import {Asset} from "contentful";
 import qUrl from "/images/q.webp"
-import {IArt} from "../../../../../@types/generated/contentful";
+import {IArt} from "../../../../types/contentful";
 import {ArtSkeleton} from "../types/ArtSkeleton";
 
 export function ArtPiece({piece, spot = 1}: { piece: IArt | ArtSkeleton, spot?: number }) {
