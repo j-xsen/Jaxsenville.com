@@ -1,6 +1,6 @@
 .Frame.Blahg {
     height: 8rem;
-    min-width:50%;
+    min-width: 50%;
 }
 
 .Frame.Blahg:hover {
@@ -8,7 +8,7 @@
 }
 
 .Frame.Blahg.open {
-    height:auto;
+    height: auto;
 }
 
 .Frame.Blahg.open:hover {
@@ -25,10 +25,10 @@ h3 {
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.6rem;
-    margin-left:2rem;
-    margin-right:2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 p.date {
-    text-align:center;
+    text-align: center;
 }

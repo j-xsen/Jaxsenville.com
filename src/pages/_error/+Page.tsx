@@ -1,13 +1,13 @@
-import { usePageContext } from "vike-react/usePageContext"
+import {usePageContext} from "vike-react/usePageContext"
 
-export { Page }
+export {Page}
 
 function Page() {
     const pageContext = usePageContext()
 
     let msg: string
-    const { abortReason } = pageContext
-    if ( typeof(abortReason) === "string" ) {
+    const {abortReason} = pageContext
+    if (typeof (abortReason) === "string") {
         msg = abortReason
     } else {
         msg = pageContext.is404 ? "Page not found" : "An error occurred"

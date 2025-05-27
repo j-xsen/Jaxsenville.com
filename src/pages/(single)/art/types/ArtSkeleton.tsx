@@ -1,4 +1,4 @@
-import {EntryFieldTypes, Asset, EntrySkeletonType} from "contentful";
+import {Asset, EntryFieldTypes, EntrySkeletonType} from "contentful";
 
 export interface ArtSkeletonFields {
     title: EntryFieldTypes.Text | string;
