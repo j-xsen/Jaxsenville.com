@@ -1,8 +1,9 @@
-import { useMetadata } from 'vike-metadata-react';
+import {useMetadata} from 'vike-metadata-react';
 import './Page.css'
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data.tsx";
-import { ArtPiece } from './components/ArtPiece.tsx';
+import {ArtPiece} from './components/ArtPiece.tsx';
+import {IArt} from "../../../../@types/generated/contentful";
 
 export default function Page() {
     useMetadata({
@@ -13,7 +14,7 @@ export default function Page() {
         <>
             {data.arts.items.map((piece, spot) => {
                 return (
-                    <ArtPiece key={piece.sys.id} piece={piece} spot={spot} />
+                    <ArtPiece key={piece.sys.id} piece={piece as IArt} spot={spot}/>
                 )
             })}
         </>

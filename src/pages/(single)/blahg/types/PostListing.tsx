@@ -1,6 +1,6 @@
 export default interface PostListing {
-	ID: string;
-	title: string;
-	created_at: string;
-	url: string;
+    ID: string;
+    title: string;
+    created_at: string;
+    url: string;
 }
