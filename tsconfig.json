@@ -11,7 +11,4 @@
   "compilerOptions": {
     "jsx": "react"
   },
-  "include": [
-    "src/**/*"
-  ]
 }
