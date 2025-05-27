@@ -76,3 +76,7 @@ p {
     text-align: center;
     padding-right: 0;
 }
+
+.icon {
+    height:1.25rem;
+}
