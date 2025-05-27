@@ -1,4 +1,4 @@
-import instagramUrl from "../../../../../public/icon/instagram.webp"
+import instagramUrl from "/icon/instagram.webp"
 
 export default function ContactComponent() {
     return (
