@@ -1,7 +1,7 @@
-import {ArtSkeletonFields} from "../types/ArtSkeleton.tsx";
+import {ArtSkeleton} from "../types/ArtSkeleton.tsx";
 import {format} from "date-fns";
 
-export function ArtPiece({ piece, spot = 1 }: { piece: ArtSkeletonFields, spot?: number }) {
+export function ArtPiece({ piece, spot = 1 }: { piece: ArtSkeleton, spot?: number }) {
     return(
         <>
             <div className={`Frame${ spot == 0 ? " Frame0" : "" }`}>
