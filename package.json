@@ -7,7 +7,8 @@
     "dev": "vike dev",
     "build": "tsc -b && vike build",
     "lint": "eslint .",
-    "preview": "vike build && vike preview"
+    "preview": "vike build && vike preview",
+    "generate-types": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
     "contentful": "^11.5.14",
@@ -23,6 +24,8 @@
     "@eslint/js": "^9.24.0",
     "@types/react": "^19.1.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "contentful-management": "^11.52.2",
+    "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^9.24.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
