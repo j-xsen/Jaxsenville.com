@@ -12,7 +12,7 @@ export default function Page() {
     const data = useData<Data>();
 
     return (
-        <>
+        <div className={"inner"}>
             {data.posts?.items.map((post, index) => {
                 if (!post.fields) return null;
                 const postListing: PostListing = {
@@ -30,6 +30,6 @@ export default function Page() {
                     />
                 );
             })}
-        </>
+        </div>
     );
 }

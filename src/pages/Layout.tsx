@@ -1,6 +1,6 @@
 export {Layout};
 
-import React, {StrictMode} from "react";
+import React, {StrictMode, Suspense} from "react";
 import {useMetadata} from "vike-metadata-react";
 import "./Layout.css";
 import HeaderImage from "../components/HeaderImage";
@@ -21,8 +21,10 @@ export default function Layout({children}: { children: React.ReactNode }) {
     return (
         <>
             <StrictMode>
+                <Suspense fallback={<p>Loading...</p>}>
                 <HeaderImage/>
                 <div>{children}</div>
+                </Suspense>
             </StrictMode>
         </>
     );

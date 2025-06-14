@@ -5,8 +5,8 @@ import './Page.css'
 export default function Page() {
     useMetadata({title: "Contact | Jaxsenville"})
     return (
-        <>
+        <div className={"inner"}>
             <ContactComponent/>
-        </>
+        </div>
     )
 }

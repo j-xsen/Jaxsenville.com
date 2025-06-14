@@ -27,7 +27,11 @@ export default function Page() {
 
     return (
         <>
-            <div className="Gallery">{data.post && <BlahgPost data={blahg}/>}</div>
+            <div className="Gallery">
+                <div className={"inner"}>
+                {data.post && <BlahgPost data={blahg}/>}
+                </div>
+            </div>
         </>
     );
 }

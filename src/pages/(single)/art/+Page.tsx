@@ -11,12 +11,12 @@ export default function Page() {
     })
     const data = useData<Data>();
     return (
-        <>
+        <div className={"inner"}>
             {data.arts.items.map((piece, spot) => {
                 return (
                     <ArtPiece key={piece.sys.id} piece={piece as IArt} spot={spot}/>
                 )
             })}
-        </>
+        </div>
     )
 }
