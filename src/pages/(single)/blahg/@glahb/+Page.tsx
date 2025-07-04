@@ -4,9 +4,12 @@ import BlahgPost from "./components/BlahgPost";
 import "./Page.css";
 import {useMetadata} from "vike-metadata-react";
 import Post from "../types/Post";
+import { useBlahgPost } from "../../../../context/BlahgPostContext";
+import {useEffect} from "react";
 
 export default function Page() {
     const data = useData<Data>();
+    const { setBlahgPost } = useBlahgPost();
 
     useMetadata({
         title: `${data.post.items[0].fields.title} | Blahg | Jaxsenville`,
@@ -20,7 +23,7 @@ export default function Page() {
             title: `${data.post.items[0].fields.title} | Blahg | Jaxsenville`,
             description: "Jaxsen unpacks the synth-layered emotions behind the EP.",
             publishedTime: String(data.post.items[0].fields.createdAt),
-        }
+        },
     });
 
     const thisItem = data.post.items[0];
@@ -35,6 +38,15 @@ export default function Page() {
         created_at: String(thisItem.fields.createdAt),
         url: String(thisItem.fields.url),
     };
+
+    // Set the blahgPost data in the context
+    useEffect(() => {
+        setBlahgPost(blahg);
+        return () => {
+            // Clean up when the component unmounts
+            setBlahgPost(null);
+        };
+    }, [blahg, setBlahgPost]);
 
     return (
         <>
