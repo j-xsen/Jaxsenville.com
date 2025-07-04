@@ -13,10 +13,13 @@ export default function Page() {
         description: "Jaxsen upacks the synth-layered emotions behind the EP. Introspective notes from the digital city's mayoral journal.",
         openGraph: {
             type: "article",
+            authors: "Jaxsen Honeycutt",
+            locale: "en_US",
+            siteName: "Jaxsenville",
+            url: "https://jaxsenville.com/",
             title: `${data.post.items[0].fields.title} | Blahg | Jaxsenville`,
             description: "Jaxsen unpacks the synth-layered emotions behind the EP.",
             publishedTime: String(data.post.items[0].fields.createdAt),
-            images: "https://jaxsenville.com/images/background.avif"
         }
     });
 

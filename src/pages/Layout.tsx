@@ -16,6 +16,17 @@ useMetadata.setGlobalDefaults({
         "blahg",
         "louisville artist"
     ],
+    robots: "index, follow",
+    applicationName: "Jaxsenville",
+    openGraph: {
+        type: "website",
+        url: "https://jaxsenville.com/",
+        siteName: "Jaxsenville",
+        locale: "en_US",
+        images: "https://jaxsenville.com/images/jaxsenvillesign-608x.webp",
+        description:
+            "Jaxsenville – An artistic haven by Jaxsen Honeycutt. Explore 7 experimental electronic tracks about love & happiness.",
+    },
     publisher: "Jaxsen Honeycutt",
     viewport: {
         width: "device-width",
@@ -28,8 +39,8 @@ export default function Layout({children}: { children: React.ReactNode }) {
         <>
             <StrictMode>
                 <Suspense fallback={<p>Loading...</p>}>
-                <HeaderImage/>
-                <div>{children}</div>
+                    <HeaderImage/>
+                    <div>{children}</div>
                 </Suspense>
             </StrictMode>
         </>
