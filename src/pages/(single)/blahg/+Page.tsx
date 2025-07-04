@@ -7,7 +7,8 @@ import type {Data} from "./+data";
 import PostListing from "./types/PostListing";
 
 export default function Page() {
-    useMetadata({title: "Blahg | Jaxsenville"});
+    useMetadata({title: "Blahg | Notes from Jaxsenville",
+    description:"Wander into the Blahg - Jaxsen's musings on sound, creativity, and town life. Dive into behind-the-scenes posts and experimental thoughts."});
 
     const data = useData<Data>();
 

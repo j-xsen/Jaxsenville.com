@@ -7,7 +7,8 @@ import {IArt} from "../../../types/contentful";
 
 export default function Page() {
     useMetadata({
-        title: "Art | Jaxsenville",
+        title: "Art | Visual Works from Jaxsenville",
+        description: "Stroll through a gallery of memory and mood. Jaxsen's visual art merges synthpop atmospheres with reflective color and texture."
     })
     const data = useData<Data>();
     return (

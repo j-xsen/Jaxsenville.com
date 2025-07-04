@@ -10,6 +10,12 @@ useMetadata.setGlobalDefaults({
     description:
         "Jaxsenville – An artistic haven by Jaxsen Honeycutt. Explore 7 experimental electronic tracks about love & happiness.",
     authors: {name: "Jaxsen Honeycutt", url: "https://www.jxsen.com/"},
+    keywords: [
+        "jaxsenville",
+        "jaxsen",
+        "blahg",
+        "louisville artist"
+    ],
     publisher: "Jaxsen Honeycutt",
     viewport: {
         width: "device-width",

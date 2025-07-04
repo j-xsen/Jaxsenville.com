@@ -5,7 +5,10 @@ import {useMetadata} from 'vike-metadata-react';
 import './Page.css'
 
 export default function Page() {
-    useMetadata({title: "Music | Jaxsenville"})
+    useMetadata({
+        title: "Music | Listen to the Jaxsenville EP",
+        description: "Experience the sonic soul of Jaxsenville. Stream Jaxsen's indie-electronic EP and explore the sounds behind the city's digital landscape."
+    })
 
     const jaxsenville_BCAlbum: IBandcampAlbum = {
         id: 1359740859,
