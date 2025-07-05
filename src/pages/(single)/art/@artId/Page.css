@@ -1,0 +1,12 @@
+/* Individual art piece page styles */
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Ensure the art piece displays properly on its own page */
+.Frame0 {
+    margin: 0 auto;
+    text-align: center;
+} 

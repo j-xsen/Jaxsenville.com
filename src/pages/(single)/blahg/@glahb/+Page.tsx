@@ -9,7 +9,7 @@ export default function Page() {
     const data = useData<Data>();
 
     useMetadata({
-        title: `${data.post.items[0].fields.title} | Blahg | Jaxsenville`,
+        title: `${data.post.items[0]?.fields?.title || "404"} | Blahg | Jaxsenville`,
         description: "Jaxsen upacks the synth-layered emotions behind the EP. Introspective notes from the digital city's mayoral journal.",
         openGraph: {
             type: "article",
@@ -17,15 +17,15 @@ export default function Page() {
             locale: "en_US",
             siteName: "Jaxsenville",
             url: "https://jaxsenville.com/",
-            title: `${data.post.items[0].fields.title} | Blahg | Jaxsenville`,
+            title: `${data.post.items[0]?.fields?.title || "404"} | Blahg | Jaxsenville`,
             description: "Jaxsen unpacks the synth-layered emotions behind the EP.",
-            publishedTime: String(data.post.items[0].fields.createdAt),
+            publishedTime: String(data.post.items[0]?.fields?.createdAt),
         }
     });
 
     const thisItem = data.post.items[0];
 
-    if (!thisItem) {
+    if (!thisItem?.fields) {
         return <h1 style={{marginTop: "7rem"}}>Blog not found.</h1>;
     }
     const blahg: Post = {

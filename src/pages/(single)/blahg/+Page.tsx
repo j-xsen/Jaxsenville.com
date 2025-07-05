@@ -12,6 +12,11 @@ export default function Page() {
 
     const data = useData<Data>();
 
+    const thisItem = data.posts?.items?.[0];
+    if(!thisItem?.fields) {
+        return <h1 style={{marginTop: "7rem"}}>Blog not found.</h1>
+    }
+
     return (
         <div className={"inner"}>
             {data.posts?.items.map((post, index) => {
