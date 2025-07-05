@@ -35,8 +35,22 @@ const loadAnalyticsOnInteraction = () => {
     setTimeout(loadAnalytics, 3000);
 };
 
+// Preload critical fonts for mobile
+const preloadFonts = () => {
+    const fontLink = document.createElement("link");
+    fontLink.rel = "preload";
+    fontLink.href = "/Monotony-Regular.woff2";
+    fontLink.as = "font";
+    fontLink.type = "font/woff2";
+    fontLink.crossOrigin = "anonymous";
+    document.head.appendChild(fontLink);
+};
+
 // Start the analytics loading process
 loadAnalyticsOnInteraction();
+
+// Preload fonts immediately
+preloadFonts();
 
 // favicon
 const faviconLinks = [
