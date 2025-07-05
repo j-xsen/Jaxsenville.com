@@ -3,6 +3,7 @@ export {Layout};
 import React, {StrictMode, Suspense} from "react";
 import {useMetadata} from "vike-metadata-react";
 import "./Layout.css";
+import "../css/Gallery.css";
 import HeaderImage from "../components/HeaderImage";
 
 useMetadata.setGlobalDefaults({
@@ -31,7 +32,7 @@ useMetadata.setGlobalDefaults({
     viewport: {
         width: "device-width",
         initialScale: 1,
-    },
+    }
 });
 
 export default function Layout({children}: { children: React.ReactNode }) {

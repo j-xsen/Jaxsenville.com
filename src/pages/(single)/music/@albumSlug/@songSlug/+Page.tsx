@@ -2,16 +2,36 @@ import {useMetadata} from 'vike-metadata-react';
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
 import {clientOnly} from "vike-react/clientOnly";
+import {useState, useEffect, useRef} from "react";
 import '../../Page.css';
 
 const ClientBandcampEmbed = clientOnly(() => import("../../components/BandcampEmbed.tsx"));
 
 export default function Page() {
     const data = useData<Data>();
+    const [shouldLoadEmbed, setShouldLoadEmbed] = useState(false);
+    const embedRef = useRef<HTMLDivElement>(null);
     
     // Always call useMetadata before any early returns
     const song = data.song;
     const album = data.album;
+    
+    useEffect(() => {
+        if (!embedRef.current) return;
+        
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShouldLoadEmbed(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+        
+        observer.observe(embedRef.current);
+        return () => observer.disconnect();
+    }, []);
     
     useMetadata({
         title: song && album ? `${song.name} | ${album.name} | Music` : 'Music | Jaxsenville',
@@ -81,8 +101,13 @@ export default function Page() {
                                 )}
                             </div>
                         </div>
-                        <div className="song-player-section">
-                            {song.embed && <ClientBandcampEmbed embed={song.embed} />}
+                        <div className="song-player-section" ref={embedRef}>
+                            {song.embed && shouldLoadEmbed && <ClientBandcampEmbed embed={song.embed} />}
+                            {song.embed && !shouldLoadEmbed && (
+                                <div className="embed-placeholder">
+                                    <p>Loading player...</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}

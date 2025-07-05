@@ -12,6 +12,7 @@ export default function HeaderImage() {
                          /images/jaxsenvillesign-304x.webp 304w"
                          src="/images/jaxsenvillesign-304x.webp"
                          sizes="304px"
+                         fetchPriority="high"
                          draggable="false"
                          title="Home page"
                          alt="Jaxsenville Sign"/>

@@ -1,7 +1,6 @@
 export {Layout}
 
 import React from 'react'
-import '../../../css/Gallery.css'
 import PageTitleButton from '../../../components/PageTitleButton'
 
 import {useData} from "vike-react/useData"

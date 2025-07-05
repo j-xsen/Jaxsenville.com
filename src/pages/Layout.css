@@ -1,21 +1,10 @@
-@font-face {
-    font-family: 'Monotony';
-    src: url('/Monotony-Regular.woff2') format('woff2'),
-    url('/Monotony-Regular.woff') format('woff'),
-    url('/Monotony-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-
+/* Critical CSS for above-the-fold content */
 html, body {
     height: 100%;
     max-height: 100%;
     max-width: 100%;
     margin: 0;
-    text-decoration: wavy;
-    font-family: Monotony;
+    font-family: Monotony, system-ui, -apple-system, sans-serif;
     overflow: hidden;
 }
 
