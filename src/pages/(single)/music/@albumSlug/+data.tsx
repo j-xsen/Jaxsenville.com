@@ -72,7 +72,7 @@ async function data(pageContext: PageContext) {
                         id: albumData.id,
                         url: albumData.url
                     } : undefined
-                } : null
+                } : undefined
             };
         }) || [];
         
