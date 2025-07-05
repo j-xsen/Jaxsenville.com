@@ -10,15 +10,12 @@ export default function Page() {
 
     const thisItem = data.post.items[0];
 
-    if (!thisItem?.fields) {
-        return <h1 style={{marginTop: "7rem"}}>Blog not found.</h1>;
-    }
-
-    const title = String(thisItem.fields.title);
-    const content = String(thisItem.fields.content);
-    const createdAt = String(thisItem.fields.createdAt);
-    const url = String(thisItem.fields.url);
-    const currentUrl = `https://jaxsenville.com/blahg/${url}`;
+    // Always call useMetadata before any early returns
+    const title = thisItem?.fields?.title ? String(thisItem.fields.title) : 'Blog | Jaxsenville';
+    const content = thisItem?.fields?.content ? String(thisItem.fields.content) : '';
+    const createdAt = thisItem?.fields?.createdAt ? String(thisItem.fields.createdAt) : '';
+    const url = thisItem?.fields?.url ? String(thisItem.fields.url) : '';
+    const currentUrl = url ? `https://jaxsenville.com/blahg/${url}` : 'https://jaxsenville.com/blahg';
 
     useMetadata({
         title: `${title} | Blahg | Jaxsenville`,
@@ -34,6 +31,10 @@ export default function Page() {
             publishedTime: createdAt,
         }
     });
+
+    if (!thisItem?.fields) {
+        return <h1 style={{marginTop: "7rem"}}>Blog not found.</h1>;
+    }
 
     const blahg: Post = {
         content: content,

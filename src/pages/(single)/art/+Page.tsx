@@ -19,7 +19,7 @@ export default function Page() {
                     title: string;
                     date: string | Date;
                     media: string;
-                    lowRez: any;
+                    lowRez: { fields?: { file?: { url?: string } } };
                 };
                 
                 return (

@@ -1,7 +1,6 @@
 import {useMetadata} from 'vike-metadata-react';
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
-import BandcampEmbed from "../../components/BandcampEmbed";
 import {clientOnly} from "vike-react/clientOnly";
 import '../../Page.css';
 
@@ -9,6 +8,15 @@ const ClientBandcampEmbed = clientOnly(() => import("../../components/BandcampEm
 
 export default function Page() {
     const data = useData<Data>();
+    
+    // Always call useMetadata before any early returns
+    const song = data.song;
+    const album = data.album;
+    
+    useMetadata({
+        title: song && album ? `${song.name} | ${album.name} | Music` : 'Music | Jaxsenville',
+        description: song && album ? `Listen to ${song.name} from ${album.name} by Jaxsen. Stream the track on Bandcamp.` : 'Listen to music by Jaxsen. Stream tracks on Bandcamp.'
+    });
     
     if (!data.song) {
         return (
@@ -19,16 +27,8 @@ export default function Page() {
         );
     }
 
-    const song = data.song;
-    const album = data.album;
-    
-    useMetadata({
-        title: `${song.name} | ${album.name} | Music`,
-        description: `Listen to ${song.name} from ${album.name} by Jaxsen. Stream the track on Bandcamp.`
-    });
-
     // Add JSON-LD schema
-    const schemaData = {
+    const schemaData = song && album ? {
         "@context": "https://schema.org",
         "@type": "MusicRecording",
         "name": song.name,
@@ -51,37 +51,41 @@ export default function Page() {
                 "target": album.spotify
             }
         })
-    };
+    } : null;
 
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(schemaData)
-                }}
-            />
+            {schemaData && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schemaData)
+                    }}
+                />
+            )}
             <div className="song-page-container">
-                <div className="song-layout">
-                    <div className="song-info-section">
-                        <a href={`/music/${album.slug}`} className="back-to-album">
-                            ← Back to {album.name}
-                        </a>
-                        <div className="song-header">
-                            <img src={album.cover} alt={`${album.name} cover art`} className="song-album-cover" />
-                            <h1>{song.name}</h1>
-                            <h2>from {album.name}</h2>
-                            {album.spotify && (
-                                <a href={album.spotify} target="_blank" title={`Open ${album.name} on Spotify`} className="spotify-link">
-                                    <img src="/icon/spotify.svg" className="icon" title="Spotify logo" alt="Spotify logo"/>
-                                </a>
-                            )}
+                {song && album && (
+                    <div className="song-layout">
+                        <div className="song-info-section">
+                            <a href={`/music/${album.slug}`} className="back-to-album">
+                                ← Back to {album.name}
+                            </a>
+                            <div className="song-header">
+                                <img src={album.cover} alt={`${album.name} cover art`} className="song-album-cover" />
+                                <h1>{song.name}</h1>
+                                <h2>from {album.name}</h2>
+                                {album.spotify && (
+                                    <a href={album.spotify} target="_blank" title={`Open ${album.name} on Spotify`} className="spotify-link">
+                                        <img src="/icon/spotify.svg" className="icon" title="Spotify logo" alt="Spotify logo"/>
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                        <div className="song-player-section">
+                            {song.embed && <ClientBandcampEmbed embed={song.embed} />}
                         </div>
                     </div>
-                    <div className="song-player-section">
-                        {song.embed && <ClientBandcampEmbed embed={song.embed} />}
-                    </div>
-                </div>
+                )}
             </div>
         </>
     );

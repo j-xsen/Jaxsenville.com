@@ -10,14 +10,14 @@ async function onBeforePrerenderStart() {
     
     const songURLs: string[] = [];
     
-    releases.items?.forEach((release: any) => {
+    releases.items?.forEach((release: { fields?: { name?: string; tracks?: Array<{ fields?: { name?: string } }> } }) => {
         const albumName = release.fields?.name;
         if (!albumName) return;
         
         const albumSlug = albumName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'unknown';
-        const tracks = release.fields?.tracks as any[] || [];
+        const tracks = release.fields?.tracks || [];
         
-        tracks.forEach((track: any) => {
+        tracks.forEach((track: { fields?: { name?: string } }) => {
             const trackName = track.fields?.name;
             if (!trackName) return;
             

@@ -8,7 +8,7 @@ async function onBeforePrerenderStart() {
         include: 2,
     });
     
-    const albumURLs = releases.items?.map((release: any) => {
+    const albumURLs = releases.items?.map((release: { fields?: { name?: string } }) => {
         const name = release.fields?.name;
         if (!name) return null;
         

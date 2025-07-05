@@ -17,7 +17,7 @@ async function data(pageContext: PageContext) {
     });
 
     // Find the release that matches the slug
-    const release = releases.items.find((item: any) => {
+    const release = releases.items.find((item: { fields?: { name?: string } }) => {
         const name = item.fields?.name;
         if (!name) return false;
         
@@ -43,7 +43,7 @@ async function data(pageContext: PageContext) {
 
     // Create a map of album IDs for quick lookup
     const albumMap = new Map();
-    bandcampAlbums.items.forEach((album: any) => {
+    bandcampAlbums.items.forEach((album: { sys: { id: string }; fields?: { id?: number; url?: string } }) => {
         albumMap.set(album.sys.id, {
             id: album.fields?.id || 0,
             url: album.fields?.url || "unknown"
@@ -51,13 +51,13 @@ async function data(pageContext: PageContext) {
     });
 
     // Transform the release data
-    const transformRelease = (release: any): IRelease => {
+    const transformRelease = (release: { fields?: { name?: string; date?: string; cover?: { fields?: { file?: { url?: string } } }; spotify?: string; tracks?: Array<{ fields?: { pos?: number; name?: string; embed?: { fields?: { trackId?: number; name?: string; album?: { sys?: { id?: string } } } } } }> } }): IRelease => {
         // Extract cover image URL from Contentful
         const coverUrl = release.fields?.cover?.fields?.file?.url;
         const coverImageUrl = coverUrl ? `https:${coverUrl}` : "/images/covers/default.avif";
         
         // Transform tracks if they exist
-        const tracks = release.fields?.tracks?.map((track: any) => {
+        const tracks = release.fields?.tracks?.map((track: { fields?: { pos?: number; name?: string; embed?: { fields?: { trackId?: number; name?: string; album?: { sys?: { id?: string } } } } } }) => {
             const embed = track.fields?.embed?.fields;
             const albumRef = embed?.album?.sys?.id;
             const albumData = albumRef ? albumMap.get(albumRef) : null;

@@ -12,7 +12,7 @@ export default function Page() {
     const data = useData<Data>();
 
     // Transform releases to album gallery format
-    const transformAlbum = (release: any) => {
+    const transformAlbum = (release: { sys: { id: string }; fields?: { name?: string; date?: string; cover?: { fields?: { file?: { url?: string } } }; spotify?: string } }) => {
         // Extract cover image URL from Contentful
         const coverUrl = release.fields?.cover?.fields?.file?.url;
         const coverImageUrl = coverUrl ? `https:${coverUrl}` : "/images/covers/default.avif";
@@ -34,7 +34,7 @@ export default function Page() {
     return (
         <div className={"inner"}>
             <div className="album-gallery">
-                {data.releases.items.map((release, index) => {
+                {data.releases.items.map((release) => {
                     const album = transformAlbum(release);
                     return (
                         <a 

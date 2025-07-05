@@ -17,7 +17,7 @@ async function data(pageContext: PageContext) {
     });
 
     // Find the release that matches the album slug
-    const release = releases.items.find((item: any) => {
+    const release = releases.items.find((item: { fields?: { name?: string } }) => {
         const name = item.fields?.name;
         if (!name) return false;
         
@@ -33,8 +33,8 @@ async function data(pageContext: PageContext) {
     }
 
     // Find the song that matches the song slug
-    const tracks = release.fields?.tracks as any[] || [];
-    const song = tracks.find((track: any) => {
+    const tracks = (release.fields?.tracks as Array<{ fields?: { name?: string } }>) || [];
+    const song = tracks.find((track: { fields?: { name?: string } }) => {
         const name = track.fields?.name;
         if (!name) return false;
         
@@ -57,7 +57,7 @@ async function data(pageContext: PageContext) {
 
     // Create a map of album IDs for quick lookup
     const albumMap = new Map();
-    bandcampAlbums.items.forEach((album: any) => {
+    bandcampAlbums.items.forEach((album: { sys: { id: string }; fields?: { id?: number; url?: string } }) => {
         albumMap.set(album.sys.id, {
             id: album.fields?.id || 0,
             url: album.fields?.url || "unknown"
@@ -65,7 +65,7 @@ async function data(pageContext: PageContext) {
     });
 
     // Transform the album data
-    const transformAlbum = (release: any) => {
+    const transformAlbum = (release: { fields?: { name?: string; date?: string; cover?: { fields?: { file?: { url?: string } } }; spotify?: string } }) => {
         const coverUrl = release.fields?.cover?.fields?.file?.url;
         const coverImageUrl = coverUrl ? `https:${coverUrl}` : "/images/covers/default.avif";
         
@@ -79,7 +79,7 @@ async function data(pageContext: PageContext) {
     };
 
     // Transform the song data
-    const transformSong = (song: any) => {
+    const transformSong = (song: { fields?: { pos?: number; name?: string; embed?: { fields?: { trackId?: number; name?: string; album?: { sys?: { id?: string } } } } } }) => {
         const embed = song.fields?.embed?.fields;
         const albumRef = embed?.album?.sys?.id;
         const albumData = albumRef ? albumMap.get(albumRef) : null;

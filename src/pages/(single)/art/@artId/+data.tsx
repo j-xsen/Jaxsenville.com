@@ -1,5 +1,4 @@
 import client from "../../../../utils/contentful";
-import {ArtSkeleton} from "../types/ArtSkeleton.tsx";
 import type {PageContext} from "vike/types";
 import {urlize} from "../../../../utils/urlize";
 

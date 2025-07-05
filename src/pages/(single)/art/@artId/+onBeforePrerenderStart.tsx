@@ -1,5 +1,4 @@
 import client from "../../../../utils/contentful";
-import {ArtSkeleton} from "../types/ArtSkeleton";
 import {urlize} from "../../../../utils/urlize";
 
 export {onBeforePrerenderStart};
