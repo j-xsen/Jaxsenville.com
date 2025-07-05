@@ -5,7 +5,7 @@ import {Suspense} from "react";
 export interface IRelease {
     name: string,
     date: Date,
-    cover: string,
+    cover: string, // Now a full URL to the cover image
     spotify: string,
     tracks: ISong[]
 }
@@ -25,7 +25,7 @@ export function Release({release, top = false}: { release: IRelease, top?: boole
         <>
             <div className={`Frame ReleaseFrame${top ? " Frame0" : ""}`}>
                 <Suspense fallback={<p>Loading...</p>}>
-                <img src={`/images/covers/${release.cover}.avif`} title={getAlt()} alt={getAlt()}/>
+                <img src={release.cover} title={getAlt()} alt={getAlt()}/>
                 </Suspense>
                 <h1>{release.name}</h1>
                 <a href={release.spotify} target="_blank" title={`Open ${release.name} on Spotify`}>

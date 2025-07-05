@@ -9,8 +9,7 @@ export type Data = Awaited<ReturnType<typeof data>>;
 async function data(pageContext: PageContext) {
     const artTitle = pageContext.routeParams.artId;
     
-    console.log('Route params:', pageContext.routeParams);
-    console.log('Art title:', artTitle);
+
     
     try {
         // Get all art pieces and find the one with matching URLized title
@@ -27,7 +26,7 @@ async function data(pageContext: PageContext) {
             throw new Error(`Art piece with title "${artTitle}" not found`);
         }
         
-        console.log('Found art piece:', artPiece);
+
         
         return {art: {items: [artPiece]}, path: "art"};
     } catch (error) {

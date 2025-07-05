@@ -26,7 +26,7 @@ export default function BandcampEmbed({embed}: { embed: IBandcampEmbed }) {
     }
     return (
         <>
-            <iframe style={{border: 0, width: '100%', height: '42px'}} src={GetSrc()} seamless>
+            <iframe style={{border: 0, height: '42px'}} src={GetSrc()} seamless>
                 <a href={GetHref()} title={`Open ${embed.name} on Bandcamp`}>{embed.name} by jaxsen</a>
             </iframe>
         </>

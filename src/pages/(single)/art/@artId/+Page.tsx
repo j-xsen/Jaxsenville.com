@@ -4,6 +4,7 @@ import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
 import {ArtPiece} from '../components/ArtPiece.tsx';
 import {IArt} from "../../../../types/contentful";
+import {urlize} from "../../../../utils/urlize";
 
 export default function Page() {
     const data = useData<Data>();
@@ -23,6 +24,7 @@ export default function Page() {
     
     const date = typeof fields.date === 'string' ? fields.date : String(fields.date);
     const imageUrl = fields.lowRez?.fields?.file?.url;
+    const currentUrl = `https://jaxsenville.com/art/${urlize(fields.title)}`;
     
     useMetadata({
         title: `${fields.title} | Art | Jaxsenville`,
@@ -48,7 +50,7 @@ export default function Page() {
         "dateCreated": date,
         "genre": fields.media,
         "image": imageUrl,
-        "url": typeof window !== 'undefined' ? window.location.href : undefined,
+        "url": currentUrl,
         "publisher": {
             "@type": "Organization",
             "name": "Jaxsenville",

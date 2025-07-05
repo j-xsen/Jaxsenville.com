@@ -1,74 +1,63 @@
-import {IBandcampAlbum} from "./components/BandcampEmbed"
-import {IRelease, Release} from "./components/Release"
 import {useMetadata} from 'vike-metadata-react';
-
-import './Page.css'
+import {useData} from "vike-react/useData";
+import type {Data} from "./+data";
+import './Page.css';
 
 export default function Page() {
     useMetadata({
         title: "Music | Listen to the Jaxsenville EP",
         description: "Experience the sonic soul of Jaxsenville. Stream Jaxsen's indie-electronic EP and explore the sounds behind the city's digital landscape."
-    })
+    });
 
-    const jaxsenville_BCAlbum: IBandcampAlbum = {
-        id: 1359740859,
-        url: "jaxsenville"
-    }
-    const jaxsenville: IRelease = {
-        name: "Jaxsenville",
-        date: new Date("2025-03-12 00:00"),
-        cover: "jaxsenville",
-        spotify: "https://open.spotify.com/album/1KNp1aqMrN0tTKJ1XAXW73?si=ACgFINEpR4u8fh7UOA8yjQ",
-        tracks: [
-            {pos: 1, embed: {track_id: 3773466243, name: "Alcraam", album: jaxsenville_BCAlbum}},
-            {pos: 2, embed: {track_id: 58503408, name: "Daydream", album: jaxsenville_BCAlbum}},
-            {pos: 3, embed: {track_id: 3720036677, name: "Snowball", album: jaxsenville_BCAlbum}},
-            {pos: 4, embed: {track_id: 2807671321, name: "Even at my Worst", album: jaxsenville_BCAlbum}},
-            {pos: 5, embed: {track_id: 2140179176, name: "Jaxsenology", album: jaxsenville_BCAlbum}},
-            {pos: 6, embed: {track_id: 3949460403, name: "Gray", album: jaxsenville_BCAlbum}},
-            {pos: 7, embed: {track_id: 1222075266, name: "You've Been There", album: jaxsenville_BCAlbum}}
-        ]
-    }
-    const the_play_BCAlbum: IBandcampAlbum = {
-        id: 340078928,
-        url: "the-play"
-    }
-    const the_play: IRelease = {
-        name: "THE PLAY",
-        date: new Date("2022-09-16 00:00"),
-        cover: "the_play",
-        spotify: "https://open.spotify.com/album/6V5GhYESfg0xRbqdcimg4m?si=-4DidGt-SPO7Ma8RAyfhjQ",
-        tracks: [
-            {pos: 1, name: "you gave me light", embed: {track_id: 449102977, album: the_play_BCAlbum}},
-            {pos: 2, name: "impose", embed: {track_id: 3264406368, album: the_play_BCAlbum}},
-            {pos: 3, name: "shackles", embed: {track_id: 3618544941, album: the_play_BCAlbum}},
-            {pos: 4, name: "i gave you my heart", embed: {track_id: 820391138, album: the_play_BCAlbum}},
-            {pos: 5, name: "i'd rather be alone", embed: {track_id: 3529285487, album: the_play_BCAlbum}}
-        ]
-    }
-    const drywall_BCAlbum: IBandcampAlbum = {
-        id: 1910877188,
-        url: "drywall"
-    }
-    const drywall: IRelease = {
-        name: "drywall",
-        date: new Date("2020-08-03 00:00"),
-        cover: "drywall",
-        spotify: "https://open.spotify.com/album/11EsKlTOW3rC92UwcPUkte?si=B2B_zNC2ScS1367AirsNWA",
-        tracks: [
-            {pos: 1, name: "clock", embed: {track_id: 2777273294, album: drywall_BCAlbum}},
-            {pos: 2, name: "creek", embed: {track_id: 904049715, album: drywall_BCAlbum}},
-            {pos: 3, name: "earthquake", embed: {track_id: 2454405647, album: drywall_BCAlbum}},
-            {pos: 4, name: "i keep losing everyone", embed: {track_id: 4176638993, album: drywall_BCAlbum}},
-            {pos: 5, name: "soaked", embed: {track_id: 3602910173, album: drywall_BCAlbum}},
-            {pos: 6, name: "harry", embed: {track_id: 4086286714, album: drywall_BCAlbum}}
-        ]
-    }
+    const data = useData<Data>();
+
+    // Transform releases to album gallery format
+    const transformAlbum = (release: any) => {
+        // Extract cover image URL from Contentful
+        const coverUrl = release.fields?.cover?.fields?.file?.url;
+        const coverImageUrl = coverUrl ? `https:${coverUrl}` : "/images/covers/default.avif";
+        
+        // Create URL-friendly slug from album name
+        const slug = release.fields?.name?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'unknown';
+
+        
+        return {
+            id: release.sys.id,
+            name: String(release.fields?.name || "Unknown Release"),
+            date: new Date(release.fields?.date || Date.now()),
+            cover: coverImageUrl,
+            spotify: String(release.fields?.spotify || ""),
+            slug: slug
+        };
+    };
+
     return (
         <div className={"inner"}>
-            <Release release={jaxsenville} top={true}/>
-            <Release release={the_play}/>
-            <Release release={drywall}/>
+            <div className="album-gallery">
+                {data.releases.items.map((release, index) => {
+                    const album = transformAlbum(release);
+                    return (
+                        <a 
+                            key={album.id} 
+                            href={`/music/${album.slug}`}
+                            className="album-card"
+                            title={`View ${album.name} tracklist`}
+                        >
+                            <div className="album-cover">
+                                <img src={album.cover} alt={`${album.name} cover art`} />
+                            </div>
+                            <div className="album-info">
+                                <h2>{album.name}</h2>
+                                <p className="album-date">{album.date.toLocaleDateString('en-US', { 
+                                    year: 'numeric', 
+                                    month: 'long', 
+                                    day: 'numeric' 
+                                })}</p>
+                            </div>
+                        </a>
+                    );
+                })}
+            </div>
         </div>
-    )
+    );
 }

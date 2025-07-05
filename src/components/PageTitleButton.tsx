@@ -1,4 +1,9 @@
-export default function PageTitleButton({text}: { text: string }) {
+export default function PageTitleButton({text}: { text?: string }) {
+    // Handle cases where text might be undefined
+    if (!text) {
+        return null;
+    }
+    
     const title = text.charAt(0).toUpperCase() + text.slice(1);
     return (
         <>
