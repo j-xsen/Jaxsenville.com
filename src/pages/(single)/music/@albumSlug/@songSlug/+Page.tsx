@@ -91,7 +91,7 @@ export default function Page() {
             )}
             <div className="inner">
                 {song && album && (
-                    <div className="album-panel">
+                    <div className="album-panel song-page">
 
                             <a href={`/music/${album.slug}`} className="back-to-album">
                                 ← Back to {album.name}
