@@ -11,14 +11,14 @@ export default function Page() {
     const data = useData<Data>();
     const [shouldLoadEmbed, setShouldLoadEmbed] = useState(false);
     const embedRef = useRef<HTMLDivElement>(null);
-    
+
     // Always call useMetadata before any early returns
     const song = data.song;
     const album = data.album;
-    
+
     useEffect(() => {
         if (!embedRef.current) return;
-        
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -28,16 +28,16 @@ export default function Page() {
             },
             { threshold: 0.1 }
         );
-        
+
         observer.observe(embedRef.current);
         return () => observer.disconnect();
     }, []);
-    
+
     useMetadata({
         title: song && album ? `${song.name} | ${album.name} | Music` : 'Music | Jaxsenville',
         description: song && album ? `Listen to ${song.name} from ${album.name} by Jaxsen. Stream the track on Bandcamp.` : 'Listen to music by Jaxsen. Stream tracks on Bandcamp.'
     });
-    
+
     if (!data.song) {
         return (
             <div className="inner">
@@ -68,7 +68,13 @@ export default function Page() {
         ...(album.spotify && {
             "potentialAction": {
                 "@type": "ListenAction",
-                "target": album.spotify
+                "target": song.spotify
+            }
+        }),
+        ...(song.lyrics && {
+            "lyrics": {
+                "@type": "CreativeWork",
+                "text": song.lyrics.replace(/<br\s*\/?>/gi, '')
             }
         })
     } : null;
@@ -83,19 +89,20 @@ export default function Page() {
                     }}
                 />
             )}
-            <div className="song-page-container">
+            <div className="inner">
                 {song && album && (
-                    <div className="song-layout">
-                        <div className="song-info-section">
+                    <div className="album-panel">
+
                             <a href={`/music/${album.slug}`} className="back-to-album">
                                 ← Back to {album.name}
                             </a>
-                            <div className="song-header">
-                                <img src={album.cover} alt={`${album.name} cover art`} className="song-album-cover" />
+                        <div className="album-content">
+                            <div style={{marginBottom:"2rem"}} className="album-cover-section">
+                                <img src={album.cover} alt={`${album.name} cover art`} className="album-cover-large" />
                                 <h1>{song.name}</h1>
-                                <h2>from {album.name}</h2>
+                                <h2 style={{fontWeight:"normal"}}>from {album.name}</h2>
                                 {album.spotify && (
-                                    <a href={album.spotify} target="_blank" title={`Open ${album.name} on Spotify`} className="spotify-link">
+                                    <a href={song.spotify} target="_blank" title={`Open ${album.name} on Spotify`} className="spotify-link">
                                         <img src="/icon/spotify.svg" className="icon" title="Spotify logo" alt="Spotify logo"/>
                                     </a>
                                 )}
@@ -109,7 +116,7 @@ export default function Page() {
                                 </div>
                             )}
                         </div>
-                        <div>
+                        <div style={{marginTop:"2rem"}}>
                             <p style={{whiteSpace:"pre-wrap"}} dangerouslySetInnerHTML={{ __html: song.lyrics }} />
                         </div>
                     </div>

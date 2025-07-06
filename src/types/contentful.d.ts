@@ -173,6 +173,9 @@ export interface ISongFields {
 
     /** lyrics */
     lyrics?: string | undefined;
+
+    /** spotify */
+    spotify?: string | undefined;
 }
 
 export interface ISong extends Entry<ISongFields> {
