@@ -9,11 +9,12 @@
 }
 
 .Gallery .inner {
-    margin-top:17rem;
+    margin-top:16.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap:2rem 1.5rem;
+    padding-top:0;
 }
 
 .Frame {

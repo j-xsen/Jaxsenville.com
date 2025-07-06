@@ -109,6 +109,9 @@ export default function Page() {
                                 </div>
                             )}
                         </div>
+                        <div>
+                            <p style={{whiteSpace:"pre-wrap"}} dangerouslySetInnerHTML={{ __html: song.lyrics }} />
+                        </div>
                     </div>
                 )}
             </div>

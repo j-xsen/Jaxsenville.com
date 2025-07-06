@@ -31,7 +31,8 @@ export function transformTrack(track: ContentfulTrack, albumMap: Map<string, { i
         id: albumData.id,
         url: albumData.url
       } : undefined
-    } : undefined
+    } : undefined,
+    lyrics: track.fields.lyrics || "[ Instrumental ]"
   };
 }
 

@@ -34,6 +34,7 @@ export interface ContentfulTrack {
     pos: number;
     name: string;
     embed?: ContentfulBandcampEmbed;
+    lyrics?: string | undefined;
   };
 }
 

@@ -170,6 +170,9 @@ export interface ISongFields {
 
     /** embed */
     embed?: IBandcampEmbed | undefined;
+
+    /** lyrics */
+    lyrics?: string | undefined;
 }
 
 export interface ISong extends Entry<ISongFields> {
