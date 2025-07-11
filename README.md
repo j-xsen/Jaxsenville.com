@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/j-xsen/Jaxsenville.com/refs/heads/master/public/images/jaxsenvillesign-304x.webp" width="304" height="160" alt="Jaxsenville sign">
 </a>
 
-# Jaxsenville
+# Jaxsenville.com
 
 [jaxsenville.com](https://jaxsenville.com/)
 
@@ -19,8 +19,7 @@ Art and music portfolio / promotion site.
 ## Technology Stack
 
 - **Frontend Framework**: React with TypeScript
-- **Build Tool**: Vite
-- **Server-Side Rendering**: Vike
+- **Build Tool**: Vike
 - **Content Management**: Contentful
 - **Package Manager**: pnpm
 - **Deployment**: Netlify
