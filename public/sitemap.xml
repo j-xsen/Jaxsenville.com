@@ -1,112 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+  <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 
-<url>
-  <loc>https://jaxsenville.com/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/blahg/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/contact/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/lets-hear-it-for-the-man-of-the-year/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/that-damn-elephant/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/banana-in-a-bottle/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/schrodingers-love/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/the-new-american-eagle/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/art/mt-jaxsen/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/blahg/welcome-to-jaxsenville/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/alcraam/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/daydream/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/snowball/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/even-at-my-worst/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/jaxsenology/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/gray/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://jaxsenville.com/music/jaxsenville/youve-been-there/</loc>
-  <lastmod>2025-07-05T03:20:56+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
+  <url>
+    <loc>https://jaxsenville.com/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/blahg/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/contact/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/lets-hear-it-for-the-man-of-the-year/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/that-damn-elephant/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/banana-in-a-bottle/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/schrodingers-love/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/the-new-american-eagle/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/art/mt-jaxsen/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/blahg/welcome-to-jaxsenville/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/the-play/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/alcraam/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/daydream/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/snowball/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/even-at-my-worst/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/jaxsenology/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/gray/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/jaxsenville/youve-been-there/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/the-play/you-gave-me-light/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/the-play/impose/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/the-play/shackles/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/the-play/i-gave-you-my-heart/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/the-play/id-rather-be-alone/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/clock/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/creek/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/earthquake/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/i-keep-losing-everyone/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/soaked/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>https://jaxsenville.com/music/drywall/harry/</loc>
+    <lastmod>2025-07-11T17:49:28+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
 
 
 </urlset>
