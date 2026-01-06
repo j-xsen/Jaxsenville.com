@@ -40,3 +40,32 @@
     padding: 1rem;
     filter: drop-shadow(0px 3px 10px black);
 }
+
+.instagram-link-container {
+    position:absolute;
+    top:13rem;
+    font-size:1.25rem;
+    right:2rem;
+    background-color:#6fafef;
+    padding:0.5rem 1rem;
+    border-radius:8px;
+    box-shadow:0px 2px 5px rgba(0,0,0,0.3);
+    transition:background-color 0.3s ease;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+}
+.instagram-link-container:hover {
+    background-color:#BFDBF8;
+    cursor:pointer;
+}
+
+.instagram-link-container a {
+    color:#000;
+    text-decoration:none;
+}
+
+.instagram-link-container img{
+    margin-right:0.5rem;
+    vertical-align: text-bottom;
+}

@@ -8,11 +8,18 @@ import {urlize} from "../../../utils/urlize";
 export default function Page() {
     useMetadata({
         title: "Art Gallery | Visual Works from Jaxsenville",
-        description: "Browse the complete collection of Jaxsen's visual art. Each piece merges synthpop atmospheres with reflective color and texture."
+        description: "Browse the complete collection of Jaxsen's visual art. Explore paintings, digital art, and mixed media pieces that capture the essence of Jaxsenville's vibrant culture."
     })
     const data = useData<Data>();
     
     return (
+        <>
+            <div className="instagram-link-container" onMouseDown={()=>window.open("https://www.instagram.com/j_xsen/", "_blank")}>
+                <a href="https://www.instagram.com/j_xsen/" target="_blank" className="instagram-link">
+                    <img src="/icon/instagram.svg" className="icon" alt="Instagram logo"/>
+                    @j_xsen
+                </a>
+            </div>
         <div className="art-gallery">
             {data.arts.items.map((piece, spot) => {
                 const fields = piece.fields as {
@@ -40,5 +47,6 @@ export default function Page() {
                 )
             })}
         </div>
+        </>
     )
 }
