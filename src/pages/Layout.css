@@ -99,5 +99,10 @@ p {
 
 ul {
     list-style-type:none;
-    display:inline-block;
+    display: inline-block;
+}
+
+header {
+    z-index:30;
+    position:relative;
 }
