@@ -12,7 +12,7 @@
     transition: transform 0.2s ease-in-out;
 }
 
-.art-gallery-item:hover {
+.art-gallery-item:hover, .art-gallery-item:focus-within {
     transform: translateY(-5px);
 }
 
@@ -51,8 +51,17 @@
     border-style: solid;
     border-color: #000;
 }
-.instagram-link-container:hover {
+.instagram-link {
+    outline:none;
+}
+.instagram-link-container:focus-within{
+    outline: 2px solid red;
+    box-shadow: 0 0 0 3px white;
+}
+.instagram-link-container:hover, .instagram-link-container:focus-within {
     background-color:#BFDBF8;
+}
+.instagram-link-container:hover{
     cursor:pointer;
 }
 

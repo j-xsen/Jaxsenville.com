@@ -6,6 +6,7 @@ export default function HeaderImage() {
                 position:"absolute",
                 background:"#fff",
                 color:"#000",
+                opacity:"0",
                 overflow:"hidden"}}>Jaxsenville - Jaxsen Honeycutt's Portfolio</h1>
             <a href="/" title="Home page" id={"header-flex"}>
                     <img id="header-image"

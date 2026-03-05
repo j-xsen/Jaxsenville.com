@@ -78,7 +78,7 @@ export default function Page() {
                                 })}</p>
                                 {release.spotify && (
                                     <a href={release.spotify} target="_blank" title={`Open ${release.name} on Spotify`} className="spotify-link">
-                                        <img src="/icon/spotify.svg" className="icon" title="Spotify logo" alt="Spotify logo"/>
+                                        <img src="/icon/spotify.svg" className="icon" alt="Spotify logo"/>
                                     </a>
                                 )}
                             </div>

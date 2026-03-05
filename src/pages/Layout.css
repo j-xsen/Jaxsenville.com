@@ -75,6 +75,10 @@ html {
     margin-top:-2rem;
 }
 
+#single-page-header-image:hover, #single-page-header-image:focus-within {
+    filter: drop-shadow(0px 0rem 0.1rem #fff);
+}
+
 #single-page-header-image img{
     display:block;
     height:5rem;

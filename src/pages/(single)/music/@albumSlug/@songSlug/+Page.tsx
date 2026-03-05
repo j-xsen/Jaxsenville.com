@@ -102,7 +102,7 @@ export default function Page() {
                                 <h2 style={{fontWeight:"normal"}}>from {album.name}</h2>
                                 {album.spotify && (
                                     <a href={song.spotify} target="_blank" title={`Open ${album.name} on Spotify`} className="spotify-link">
-                                        <img src="/icon/spotify.svg" className="icon" title="Spotify logo" alt="Spotify logo"/>
+                                        <img src="/icon/spotify.svg" className="icon" alt="Spotify logo"/>
                                     </a>
                                 )}
                             </div>

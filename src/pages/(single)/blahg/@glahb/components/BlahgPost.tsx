@@ -12,7 +12,7 @@ export default function BlahgPost({data}: { data: Post }) {
     return (
         <>
             <div className={`Frame Frame0 Blahg open`}>
-                <h3>{data.title}</h3>
+                <h2>{data.title}</h2>
                 <p className="date">{format(data.created_at, "d MMMM u")}</p>
                 <p className="content">{data.content}</p>
             </div>
