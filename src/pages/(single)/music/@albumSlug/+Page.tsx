@@ -10,7 +10,7 @@ export default function Page() {
     const release = data.release;
     
     useMetadata({
-        title: release ? `${release.name} | Music | Jaxsen` : 'Music | Jaxsenville',
+        title: release ? `${release.name} by jaxsen | Jaxsenville` : 'Music | Jaxsenville',
         description: release ? `Listen to ${release.name} by Jaxsen. Stream the full album and explore the tracks.` : 'Listen to music by Jaxsen. Stream albums and explore tracks.'
     });
     

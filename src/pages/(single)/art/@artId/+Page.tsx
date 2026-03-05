@@ -24,7 +24,7 @@ export default function Page() {
     const currentUrl = fields ? `https://jaxsenville.com/art/${urlize(fields.title)}` : '';
     
     useMetadata({
-        title: fields ? `${fields.title} | Art | Jaxsenville` : 'Art | Jaxsenville',
+        title: fields ? `${fields.title} by Jaxsen Honeycutt | Jaxsenville` : 'Art | Jaxsenville',
         description: fields ? `View ${fields.title} by Jaxsen - ${fields.media} created in ${new Date(date).getFullYear()}.` : 'Art by Jaxsen',
         openGraph: {
             type: "article",

@@ -6,8 +6,8 @@ import DSP from "./components/DSP";
 
 export default function Page() {
     useMetadata({
-        title: "Music | Listen to the music of Jaxsenville",
-        description: "Listen to the different EPs released by our mayor, Jaxsen."
+        title: "Music | Listen to Jaxsenville",
+        description: "Listen to the different EPs released by our mayor, Jaxsen Honeycutt."
     });
 
     const data = useData<Data>();

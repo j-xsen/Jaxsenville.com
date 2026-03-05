@@ -7,7 +7,7 @@ import {urlize} from "../../../utils/urlize";
 
 export default function Page() {
     useMetadata({
-        title: "Art | Visual Works from Jaxsenville",
+        title: "Visual Art by Jaxsen Honeycutt | Jaxsenville",
         description: "Browse a collection of Jaxsen's visual art. Explore paintings, digital art, and mixed media pieces that capture the essence of Jaxsenville's vibrant culture."
     })
     const data = useData<Data>();
