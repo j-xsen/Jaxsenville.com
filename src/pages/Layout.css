@@ -50,9 +50,10 @@ html {
 }
 
 #header-flex {
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
+    width:fit-content;
+    margin:1rem auto;
 }
 
 #header-flex.single {
@@ -60,21 +61,23 @@ html {
 }
 
 #header-image {
-    z-index: 30;
     max-height: 10rem;
     filter: drop-shadow(0px 0.25rem 0.5rem rgba(0, 0, 0, 0.75));
     animation: rotate-header 10s linear infinite;
 }
 
-#single-page-header-image {
-    position: absolute;
-    max-width: 30%;
-    max-height: 5rem;
-    height: 20%;
-    transform: rotateZ(-20deg);
-    top: 11rem;
-    left: 4%;
-    z-index: 20;
+#header-image:hover, #header-flex:focus-within, header a:focus {
+    filter: drop-shadow(0px 0.25rem 0.5rem rgba(100, 225, 125, 0.75));
+    animation-play-state: paused;
+}
+
+#single-page-header-image{
+    margin-top:-2rem;
+}
+
+#single-page-header-image img{
+    display:block;
+    height:5rem;
 }
 
 h1 {
@@ -92,4 +95,9 @@ p {
 
 .icon {
     height: 1.25rem;
+}
+
+ul {
+    list-style-type:none;
+    display:inline-block;
 }

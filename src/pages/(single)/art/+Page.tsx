@@ -13,13 +13,6 @@ export default function Page() {
     const data = useData<Data>();
     
     return (
-        <>
-            <div className="instagram-link-container" onMouseDown={()=>window.open("https://www.instagram.com/j_xsen/", "_blank")}>
-                <a href="https://www.instagram.com/j_xsen/" target="_blank" className="instagram-link">
-                    <img src="/icon/instagram.svg" className="icon" alt="Instagram logo"/>
-                    @j_xsen
-                </a>
-            </div>
         <div className="art-gallery">
             {data.arts.items.map((piece, spot) => {
                 const fields = piece.fields as {
@@ -47,6 +40,5 @@ export default function Page() {
                 )
             })}
         </div>
-        </>
     )
 }

@@ -3,18 +3,16 @@ export default function PageTitleButton({text}: { text?: string }) {
     if (!text) {
         return null;
     }
-    
+
     const title = text.charAt(0).toUpperCase() + text.slice(1);
     return (
-        <>
+        <li id={"single-page-header-image"} >
             <a href={`/${text}`} title={`${title} page`}>
-                <img
-                    id="single-page-header-image"
-                    draggable="false"
+                <img draggable="false"
                     title={`${title} page`}
                     src={`/${text}_outline.svg`}
                     alt={title}/>
             </a>
-        </>
+        </li>
     )
 }

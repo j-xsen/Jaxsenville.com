@@ -9,7 +9,7 @@ import HeaderImage from "../components/HeaderImage";
 useMetadata.setGlobalDefaults({
     title: "Jaxsenville",
     description:
-        "Jaxsenville – An artistic haven by Jaxsen Honeycutt. Explore 7 experimental electronic tracks about love & happiness.",
+        "Step into Jaxsenville, the digital town created by Jaxsen Honeycutt. Explore original artwork, creative projects, blog posts, and ways to get in touch.",
     authors: {name: "Jaxsen Honeycutt", url: "https://www.jxsen.com/"},
     keywords: [
         "jaxsenville",
@@ -26,7 +26,7 @@ useMetadata.setGlobalDefaults({
         locale: "en_US",
         images: "https://jaxsenville.com/images/jaxsenvillesign-608x.webp",
         description:
-            "Jaxsenville – An artistic haven by Jaxsen Honeycutt. Explore 7 experimental electronic tracks about love & happiness.",
+            "Step into Jaxsenville, the digital town created by Jaxsen Honeycutt. Explore original artwork, creative projects, blog posts, and ways to get in touch.",
     },
     publisher: "Jaxsen Honeycutt",
     viewport: {
@@ -40,8 +40,12 @@ export default function Layout({children}: { children: React.ReactNode }) {
         <>
             <StrictMode>
                 <Suspense fallback={<p>Loading...</p>}>
-                    <HeaderImage/>
-                    <div>{children}</div>
+                    <header role={"banner"}>
+                        <HeaderImage/>
+                    </header>
+                    <main role={"main"}>
+                    {children}
+                    </main>
                 </Suspense>
             </StrictMode>
         </>

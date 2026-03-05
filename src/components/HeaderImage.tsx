@@ -1,8 +1,13 @@
 export default function HeaderImage() {
     return (
         <>
-            <a href="/" title="Home page">
-                <div id="header-flex" className={"home"}>
+            <h1 style={{width:"1px",
+                height:"1px",
+                position:"absolute",
+                background:"#fff",
+                color:"#000",
+                overflow:"hidden"}}>Jaxsenville - Jaxsen Honeycutt's Portfolio</h1>
+            <a href="/" title="Home page" id={"header-flex"}>
                     <img id="header-image"
                          width="304"
                          height="160"
@@ -16,7 +21,6 @@ export default function HeaderImage() {
                          draggable="false"
                          title="Home page"
                          alt="Jaxsenville Sign"/>
-                </div>
             </a>
         </>
     )
