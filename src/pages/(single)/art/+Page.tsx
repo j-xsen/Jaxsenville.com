@@ -4,6 +4,7 @@ import {useData} from "vike-react/useData";
 import type {Data} from "./+data.tsx";
 import {format} from "date-fns";
 import {urlize} from "../../../utils/urlize";
+import {parseLocalDate} from "../../../utils/transformers.ts";
 
 export default function Page() {
     useMetadata({
@@ -29,9 +30,10 @@ export default function Page() {
                                 <img alt={""}
                                     src={fields.lowRez?.fields?.file?.url || "/images/q.webp"}
                                     className="ArtPiece"
+                                     loading={"lazy"}
                                 />
                                 <h2>{fields.title}</h2>
-                                <p>{format(fields.date, "MMMM yyyy")}</p>
+                                <p>{format(parseLocalDate(fields.date), "MMMM yyyy")}</p>
                                 <p>{fields.media}</p>
                             </div>
                         </a>

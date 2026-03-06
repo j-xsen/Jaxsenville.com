@@ -9,12 +9,18 @@ export default function BlahgPost({data}: { data: Post }) {
             </>
         );
     }
+
+    console.log()
+
     return (
         <>
             <div className={`Frame Frame0 Blahg open`}>
+                {data.heroImage && (
+                    <img src={data.heroImage.fields.file.url} alt={data.heroImage.fields.description}/>
+                )}
                 <h2>{data.title}</h2>
                 <p className="date">{format(data.created_at, "d MMMM u")}</p>
-                <p className="content">{data.content}</p>
+                <div className="content" dangerouslySetInnerHTML={{__html:data.content}}/>
             </div>
         </>
     );

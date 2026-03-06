@@ -1,11 +1,23 @@
-p.content {
+div.content p {
     white-space: pre-wrap;
     text-align: left;
     margin: 1rem;
 }
 
+.Blahg img {
+    max-height:10rem;
+    display:block;
+    padding-top:1rem;
+    margin:0 auto;
+}
+
+div.content p a {
+    text-decoration-line: underline;
+    color: #800080;
+}
+
 h2 {
-    color: orchid;
+    color: #800080;
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.6rem;

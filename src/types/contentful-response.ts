@@ -1,6 +1,7 @@
 // Type-safe interfaces for Contentful API responses
 export interface ContentfulAsset {
   fields: {
+    description: string | undefined;
     file: {
       url: string;
     };
@@ -66,6 +67,7 @@ export interface ContentfulBlahg {
     createdAt: string;
     title: string;
     content?: string;
+    heroImage?: ContentfulAsset;
   };
 }
 

@@ -6,9 +6,12 @@ import {useMetadata} from "vike-metadata-react";
 import Post from "../types/Post";
 import {format} from "date-fns";
 import {parseLocalDate} from "../../../../utils/transformers.ts";
+import Showdown from "showdown";
+import {ContentfulAsset} from "../../../../types/contentful-response.ts";
 
 type PostFields = {
     fields: {
+        heroImage?: ContentfulAsset;
         title?: string;
         content?: string;
         createdAt?: Date;
@@ -24,9 +27,12 @@ export default function Page() {
 
     const thisItem: PostFields = data.post.items[0];
 
+    const rawContent = thisItem?.fields?.content ? String(thisItem.fields.content) : '';
+    const converter = new Showdown.Converter();
+    const content = converter.makeHtml(rawContent);
+
     // Always call useMetadata before any early returns
     const title = thisItem?.fields?.title ? String(thisItem.fields.title) : 'Blog | Jaxsenville';
-    const content = thisItem?.fields?.content ? String(thisItem.fields.content) : '';
     const createdAt: Date = thisItem?.fields?.createdAt ? thisItem.fields.createdAt : new Date();
     const url = thisItem?.fields?.url ? String(thisItem.fields.url) : '';
     const currentUrl = url ? `https://jaxsenville.com/blahg/${url}` : 'https://jaxsenville.com/blahg';
@@ -56,6 +62,7 @@ export default function Page() {
         title: title,
         created_at: parseLocalDate(createdAt),
         url: url,
+        heroImage: thisItem.fields.heroImage ? thisItem.fields.heroImage : undefined,
     };
 
     // JSON-LD Schema for the blog post

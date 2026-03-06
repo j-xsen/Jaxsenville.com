@@ -4,6 +4,7 @@ import qUrl from "/images/q.webp"
 import {IArt} from "../../../../types/contentful";
 import {ArtSkeleton} from "../types/ArtSkeleton";
 import {Suspense} from "react";
+import {parseLocalDate} from "../../../../utils/transformers.ts";
 
 export function ArtPiece({piece, spot = 1}: { piece: IArt | ArtSkeleton, spot?: number }) {
     const getUrl = (asset: Asset | undefined): string => {
@@ -31,7 +32,7 @@ export function ArtPiece({piece, spot = 1}: { piece: IArt | ArtSkeleton, spot?: 
                 />
                 </Suspense>
                 <h1>{fields.title}</h1>
-                <p>{format(fields.date, "MMMM yyyy")}</p>
+                <p>{format(parseLocalDate(fields.date), "MMMM yyyy")}</p>
                 <p>{fields.media}</p>
             </div>
         </>
