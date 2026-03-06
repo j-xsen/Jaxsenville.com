@@ -5,6 +5,7 @@ import "./Page.css";
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
 import PostListing from "./types/PostListing";
+import {parseLocalDate} from "../../../utils/transformers.ts";
 
 export default function Page() {
     useMetadata({title: "Blahg | Notes from Jaxsenville",
@@ -24,7 +25,7 @@ export default function Page() {
                 const postListing: PostListing = {
                     ID: post.sys.id,
                     url: post.fields.url,
-                    created_at: post.fields.createdAt,
+                    created_at: parseLocalDate(post.fields.createdAt),
                     title: post.fields.title,
                 };
 

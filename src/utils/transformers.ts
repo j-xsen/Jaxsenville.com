@@ -37,7 +37,10 @@ export function transformTrack(track: ContentfulTrack, albumMap: Map<string, { i
   };
 }
 
-export function parseLocalDate (dateString: string){
+export function parseLocalDate(dateString: string | Date){
+  if(!dateString) return new Date();
+  if(dateString instanceof Date) return dateString;
+  if(dateString.includes('T')) return new Date(dateString);
   const [year, month, day] = dateString.split('-').map(Number);
   return new Date(year, month - 1, day);
 }

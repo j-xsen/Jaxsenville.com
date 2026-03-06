@@ -104,9 +104,19 @@ p {
 ul {
     list-style-type:none;
     display: inline-block;
+    pointer-events: none;
+}
+
+ul li, ul a {
+    pointer-events: auto;
 }
 
 header {
     z-index:30;
     position:relative;
+    pointer-events: none;
+}
+
+header a {
+    pointer-events: auto;
 }
