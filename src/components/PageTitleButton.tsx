@@ -10,7 +10,7 @@ export default function PageTitleButton({text}: { text?: string }) {
             <a href={`/${text}`} title={`${title} page`}>
                 <img draggable="false"
                     title={`${title} page`}
-                    src={`/${text}_outline.svg`}
+                    src={`/menu/${text}_outline.svg`}
                     alt={title}/>
             </a>
         </li>

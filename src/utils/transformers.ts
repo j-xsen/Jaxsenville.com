@@ -37,6 +37,11 @@ export function transformTrack(track: ContentfulTrack, albumMap: Map<string, { i
   };
 }
 
+export function parseLocalDate (dateString: string){
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}
+
 export function transformReleaseData(
   release: ContentfulRelease, 
   albumMap: Map<string, { id: number; url: string }>
@@ -50,7 +55,7 @@ export function transformReleaseData(
   
   return {
     name: release.fields.name,
-    date: new Date(release.fields.date),
+    date: parseLocalDate(release.fields.date),
     cover: coverImageUrl,
     spotify: release.fields.spotify,
     tracks: tracks

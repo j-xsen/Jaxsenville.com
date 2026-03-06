@@ -4,7 +4,7 @@ function MenuButton({text}: { text: string }) {
         <li id={`${text}-button`} className={"menu-button"}>
             <a href={`/${text}`} title={`${title} page`}>
                 <img draggable="false"
-                     src={`./${text}_outline.svg`}
+                     src={`./menu/${text}_outline.svg`}
                      alt={title}
                      title={`${title} page`}/>
             </a>

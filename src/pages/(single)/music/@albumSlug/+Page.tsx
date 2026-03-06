@@ -2,6 +2,7 @@ import {useMetadata} from 'vike-metadata-react';
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
 import '../Page.css';
+import { format } from "date-fns";
 
 export default function Page() {
     const data = useData<Data>();
@@ -71,11 +72,7 @@ export default function Page() {
                             <div className="album-cover-section">
                                 <img src={release.cover} alt={`${release.name} cover art`} className="album-cover-large" />
                                 <h1>{release.name}</h1>
-                                <p className="album-date">{release.date.toLocaleDateString('en-US', { 
-                                    year: 'numeric', 
-                                    month: 'long', 
-                                    day: 'numeric' 
-                                })}</p>
+                                <p className="album-date">{`${format(release.date, "d MMMM u")}`}</p>
                                 {release.spotify && (
                                     <a href={release.spotify} target="_blank" title={`Open ${release.name} on Spotify`} className="spotify-link">
                                         <img src="/icon/spotify.svg" className="icon" alt="Spotify logo"/>

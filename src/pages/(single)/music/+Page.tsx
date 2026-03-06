@@ -3,6 +3,8 @@ import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
 import './Page.css';
 import DSP from "./components/DSP";
+import {format} from "date-fns";
+import {parseLocalDate} from "../../../utils/transformers.ts";
 
 export default function Page() {
     useMetadata({
@@ -24,11 +26,10 @@ export default function Page() {
         // Create URL-friendly slug from album name
         const slug = release.fields?.name?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'unknown';
 
-
         return {
             id: release.sys.id,
             name: String(release.fields?.name || "Unknown Release"),
-            date: new Date(release.fields?.date || Date.now()),
+            date: release.fields?.date ? parseLocalDate(release.fields.date) : new Date(),
             cover: coverImageUrl,
             spotify: String(release.fields?.spotify || ""),
             slug: slug
@@ -39,11 +40,11 @@ export default function Page() {
         <>
             <div className="upper">
                 <div className="dsp-gallery">
-                    <DSP name={"Spotify"} link={"https://open.spotify.com/artist/6Ly7gJrLmS2qrlbLe3cCKL?si=vzmPIzS8Ti2_0hWsuvY4XQ"}/>
+                    <DSP name={"Spotify"}
+                         link={"https://open.spotify.com/artist/6Ly7gJrLmS2qrlbLe3cCKL?si=vzmPIzS8Ti2_0hWsuvY4XQ"}/>
                     <DSP name={"Apple"} link={"https://music.apple.com/us/artist/jaxsen/1497650230"}/>
                     <DSP name={"YouTube"} link={"https://www.youtube.com/@j_xsen"}/>
                 </div>
-
             </div>
             <div className={"inner no-margin"}>
                 <div className="album-gallery">
@@ -61,11 +62,7 @@ export default function Page() {
                                 </div>
                                 <div className="album-info">
                                     <h2>{album.name}</h2>
-                                    <p className="album-date">{album.date.toLocaleDateString('en-US', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric'
-                                    })}</p>
+                                    <p className="album-date">{format(album.date, "d MMMM u")}</p>
                                 </div>
                             </a>
                         );
