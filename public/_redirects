@@ -1,0 +1,5 @@
+# Strip trailing slashes — Vike prerender generates no-trailing-slash URLs
+/*/ /:splat 301
+
+# Catch-all 404
+/* /404.html 404
