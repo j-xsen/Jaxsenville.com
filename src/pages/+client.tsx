@@ -12,7 +12,10 @@ const loadGoogleAnalytics = () => {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-7V244LMYNT");
+      gtag("config", "G-7V244LMYNT", {
+        allow_ad_personalization_signals: false,
+        allow_google_signals: false
+      });
     `;
     document.head.appendChild(script2);
 };
