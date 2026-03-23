@@ -1,42 +1,9 @@
-// Defer Google Analytics loading to improve initial page load
-const loadGoogleAnalytics = () => {
-    const script1 = document.createElement("script");
-    script1.async = true;
-    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-7V244LMYNT";
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement("script");
-    script2.textContent = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-7V244LMYNT", {
-        allow_ad_personalization_signals: false,
-        allow_google_signals: false
-      });
-    `;
-    document.head.appendChild(script2);
-};
-
-// Load analytics after user interaction or after a delay
-const loadAnalyticsOnInteraction = () => {
-    // Load analytics after user scrolls or interacts
-    const loadAnalytics = () => {
-        loadGoogleAnalytics();
-        document.removeEventListener('scroll', loadAnalytics);
-        document.removeEventListener('click', loadAnalytics);
-        document.removeEventListener('keydown', loadAnalytics);
-    };
-    
-    document.addEventListener('scroll', loadAnalytics, { once: true, passive: true });
-    document.addEventListener('click', loadAnalytics, { once: true, passive: true });
-    document.addEventListener('keydown', loadAnalytics, { once: true, passive: true });
-    
-    // Fallback: load after 3 seconds if no interaction
-    setTimeout(loadAnalytics, 3000);
-};
+// Umami analytics
+const script = document.createElement("script");
+script.defer = true;
+script.src = "https://umami-psi-inky.vercel.app/script.js";
+script.setAttribute("data-website-id", "1fc07c3f-0220-4e23-aaba-d8d50f371a47");
+document.head.appendChild(script);
 
 // Preload critical fonts for mobile
 const preloadFonts = () => {
@@ -48,9 +15,6 @@ const preloadFonts = () => {
     fontLink.crossOrigin = "anonymous";
     document.head.appendChild(fontLink);
 };
-
-// Start the analytics loading process
-loadAnalyticsOnInteraction();
 
 // Preload fonts immediately
 preloadFonts();
