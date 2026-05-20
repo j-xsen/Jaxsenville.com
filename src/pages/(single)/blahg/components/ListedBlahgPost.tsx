@@ -14,7 +14,7 @@ export default function ListedBlahgPost({
                 href={`/blahg/${data.url}`}
                 title={data.title}
                 className={`Frame Blahg${top ? " Frame0" : ""}`}>
-                <h3>{data.title}</h3>
+                <h2>{data.title}</h2>
                 <p className="date">{format(data.created_at, "d MMMM u")}</p>
             </a>
         </>

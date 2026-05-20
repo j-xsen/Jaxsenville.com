@@ -7,6 +7,7 @@ export type Data = Awaited<ReturnType<typeof data>>;
 async function data() {
     const posts = await client.getEntries<BlahgEntrySkeleton>({
         content_type: "blahg",
+        order: ['-fields.createdAt']
     });
 
     return {path: "blahg", posts};

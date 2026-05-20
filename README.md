@@ -28,7 +28,7 @@ Art and music portfolio / promotion site.
 
 ```bash
 # Install dependencies
-pnpm install
+pnpm i
 
 # Start development server
 pnpm dev
@@ -39,6 +39,15 @@ pnpm build
 # Preview build
 pnpm preview
 ```
+
+The server requires a `.env` file with the following variables from Contentful:
+
+```env
+VITE_CONTENTFUL_ACCESS_TOKEN
+VITE_CONTENTFUL_SPACE
+```
+
+`.env.example` is provided as a reference.
 
 ## Hosting
 

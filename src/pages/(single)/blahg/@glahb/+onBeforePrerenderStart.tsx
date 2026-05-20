@@ -7,8 +7,7 @@ async function onBeforePrerenderStart() {
     const blogPosts = await client.getEntries<BlahgEntrySkeleton>({
         content_type: "blahg",
     });
-    const blogPostURLs = blogPosts.items?.map(
+    return blogPosts.items?.map(
         (post) => `/blahg/${post.fields.url}`
     );
-    return blogPostURLs;
 }

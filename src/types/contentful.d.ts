@@ -106,6 +106,8 @@ export interface IBlahgFields {
 
     /** Content */
     content?: string | undefined;
+
+    heroImage?: Asset | undefined;
 }
 
 /** Jaxsenville Blahg */

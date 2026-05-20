@@ -4,22 +4,42 @@ import BlahgPost from "./components/BlahgPost";
 import "./Page.css";
 import {useMetadata} from "vike-metadata-react";
 import Post from "../types/Post";
+import {format} from "date-fns";
+import {parseLocalDate} from "../../../../utils/transformers.ts";
+import Showdown from "showdown";
+import {ContentfulAsset} from "../../../../types/contentful-response.ts";
+
+type PostFields = {
+    fields: {
+        heroImage?: ContentfulAsset;
+        title?: string;
+        content?: string;
+        createdAt?: Date;
+        url?: string;
+    },
+    sys: {
+        id: string;
+    }
+}
 
 export default function Page() {
     const data = useData<Data>();
 
-    const thisItem = data.post.items[0];
+    const thisItem: PostFields = data.post.items[0];
+
+    const rawContent = thisItem?.fields?.content ? String(thisItem.fields.content) : '';
+    const converter = new Showdown.Converter();
+    const content = converter.makeHtml(rawContent);
 
     // Always call useMetadata before any early returns
     const title = thisItem?.fields?.title ? String(thisItem.fields.title) : 'Blog | Jaxsenville';
-    const content = thisItem?.fields?.content ? String(thisItem.fields.content) : '';
-    const createdAt = thisItem?.fields?.createdAt ? String(thisItem.fields.createdAt) : '';
+    const createdAt: Date = thisItem?.fields?.createdAt ? thisItem.fields.createdAt : new Date();
     const url = thisItem?.fields?.url ? String(thisItem.fields.url) : '';
     const currentUrl = url ? `https://jaxsenville.com/blahg/${url}` : 'https://jaxsenville.com/blahg';
 
     useMetadata({
         title: `${title} | Blahg | Jaxsenville`,
-        description: "Jaxsen unpacks the synth-layered emotions behind the EP. Introspective notes from the digital city's mayoral journal.",
+        description: "Jaxsen Honeycutt chronicles the thought behind his art.",
         openGraph: {
             type: "article",
             authors: "Jaxsen Honeycutt",
@@ -27,8 +47,8 @@ export default function Page() {
             siteName: "Jaxsenville",
             url: currentUrl,
             title: `${title} | Blahg | Jaxsenville`,
-            description: "Jaxsen unpacks the synth-layered emotions behind the EP.",
-            publishedTime: createdAt,
+            description: "Jaxsen Honeycutt chronicles the thought behind his art.",
+            publishedTime: format(createdAt, "d MMMM u"),
         }
     });
 
@@ -40,8 +60,9 @@ export default function Page() {
         content: content,
         ID: thisItem.sys.id,
         title: title,
-        created_at: createdAt,
+        created_at: parseLocalDate(createdAt),
         url: url,
+        heroImage: thisItem.fields.heroImage ? thisItem.fields.heroImage : undefined,
     };
 
     // JSON-LD Schema for the blog post

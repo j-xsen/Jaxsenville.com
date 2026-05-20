@@ -1,15 +1,12 @@
 @keyframes rotate-menu {
     0% {
-        transform: rotate(1deg);
-        transform: translateY(0rem);
+        transform: rotate(1deg) translateY(0rem);
     }
     50% {
-        transform: rotate(-1deg);
-        transform: translateY(0.2rem);
+        transform: rotate(-1deg) translateY(0.2rem);
     }
     100% {
-        transform: rotate(1deg);
-        transform: translateY(0rem);
+        transform: rotate(1deg) translateY(0rem);
     }
 }
 
@@ -19,9 +16,14 @@
     position: absolute;
     filter: drop-shadow(0px 0.25rem 0.25rem rgba(0, 0, 0, 0.5));
     animation: rotate-menu 5s linear infinite;
+    display:inline-block;
 }
 
-.menu-button:hover {
+.menu-button img {
+    display:block;
+}
+
+.menu-button:hover, .menu-button:focus-within {
     transition: all 1s;
 }
 
@@ -32,7 +34,7 @@
     animation-duration: 5s;
 }
 
-#art-button:hover {
+#art-button:hover, #art-button:focus-within {
     filter: drop-shadow(0 0.25rem 0.25rem #bb00ff);
 }
 
@@ -44,7 +46,7 @@
     animation-duration: 4s;
 }
 
-#blahg-button:hover {
+#blahg-button:hover, #blahg-button:focus-within {
     filter: drop-shadow(0 0.25rem 0.25rem rgb(158, 125, 16));
 }
 
@@ -54,7 +56,7 @@
     animation-delay: 1.7s;
 }
 
-#music-button:hover {
+#music-button:hover, #music-button:focus-within {
     filter: drop-shadow(0 0.25rem 0.25rem rgb(62, 178, 255));
 }
 
@@ -64,6 +66,6 @@
     animation-delay: 3s;
 }
 
-#contact-button:hover {
+#contact-button:hover, #contact-button:focus-within {
     filter: drop-shadow(0 0.25rem 0.25rem rgb(35, 168, 12));
 }

@@ -7,5 +7,6 @@ export type BlahgEntrySkeleton = {
         createdAt: contentful.EntryFieldTypes.Date;
         title: contentful.EntryFieldTypes.Text;
         content: contentful.EntryFieldTypes.Text;
+        heroImage: contentful.EntryFieldTypes.AssetLink;
     };
 };

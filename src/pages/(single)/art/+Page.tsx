@@ -4,11 +4,12 @@ import {useData} from "vike-react/useData";
 import type {Data} from "./+data.tsx";
 import {format} from "date-fns";
 import {urlize} from "../../../utils/urlize";
+import {parseLocalDate} from "../../../utils/transformers.ts";
 
 export default function Page() {
     useMetadata({
-        title: "Art Gallery | Visual Works from Jaxsenville",
-        description: "Browse the complete collection of Jaxsen's visual art. Each piece merges synthpop atmospheres with reflective color and texture."
+        title: "Visual Art by Jaxsen Honeycutt | Jaxsenville",
+        description: "Browse a collection of Jaxsen's visual art. Explore paintings, digital art, and mixed media pieces that capture the essence of Jaxsenville's vibrant culture."
     })
     const data = useData<Data>();
     
@@ -26,13 +27,13 @@ export default function Page() {
                     <div key={piece.sys.id} className="art-gallery-item">
                         <a href={`/art/${urlize(fields.title)}`} className="art-link">
                             <div className={`Frame${spot == 0 ? " Frame0" : ""}`}>
-                                <img
-                                    alt={fields.title}
+                                <img alt={""}
                                     src={fields.lowRez?.fields?.file?.url || "/images/q.webp"}
                                     className="ArtPiece"
+                                     loading={"lazy"}
                                 />
                                 <h2>{fields.title}</h2>
-                                <p>{format(fields.date, "MMMM yyyy")}</p>
+                                <p>{format(parseLocalDate(fields.date), "MMMM yyyy")}</p>
                                 <p>{fields.media}</p>
                             </div>
                         </a>

@@ -16,6 +16,7 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
+CLAUDE.md
 .DS_Store
 *.suo
 *.ntvs*
@@ -24,3 +25,5 @@ dist-ssr
 *.sw?
 .vercel
 public/blahgPosts.json
+
+.env

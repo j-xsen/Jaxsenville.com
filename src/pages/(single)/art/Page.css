@@ -12,7 +12,7 @@
     transition: transform 0.2s ease-in-out;
 }
 
-.art-gallery-item:hover {
+.art-gallery-item:hover, .art-gallery-item:focus-within {
     transform: translateY(-5px);
 }
 
@@ -39,4 +39,38 @@
     border-radius: 6px;
     padding: 1rem;
     filter: drop-shadow(0px 3px 10px black);
+}
+
+.instagram-link-container {
+    background-color:#6fafef;
+    padding:0.5rem 1rem;
+    border-radius:8px;
+    box-shadow:0px 2px 5px rgba(0,0,0,0.3);
+    transition:background-color 0.3s ease;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
+}
+.instagram-link {
+    outline:none;
+}
+.instagram-link-container:focus-within{
+    outline: 2px solid red;
+    box-shadow: 0 0 0 3px white;
+}
+.instagram-link-container:hover, .instagram-link-container:focus-within {
+    background-color:#BFDBF8;
+}
+.instagram-link-container:hover{
+    cursor:pointer;
+}
+
+.instagram-link-container a {
+    color:#000;
+    text-decoration:none;
+}
+
+.instagram-link-container img{
+    margin-right:0.5rem;
+    vertical-align: text-bottom;
 }

@@ -1,11 +1,10 @@
 import {useMetadata} from 'vike-metadata-react';
 import {useData} from "vike-react/useData";
 import type {Data} from "./+data";
-import {clientOnly} from "vike-react/clientOnly";
 import {useState, useEffect, useRef} from "react";
 import '../../Page.css';
-
-const ClientBandcampEmbed = clientOnly(() => import("../../components/BandcampEmbed.tsx"));
+import {ClientOnly} from "vike-react/ClientOnly";
+import BandcampEmbed from "../../components/BandcampEmbed.tsx";
 
 export default function Page() {
     const data = useData<Data>();
@@ -34,7 +33,7 @@ export default function Page() {
     }, []);
 
     useMetadata({
-        title: song && album ? `${song.name} | ${album.name} | Music` : 'Music | Jaxsenville',
+        title: song && album ? `${song.name} from ${album.name} | Jaxsenville` : 'Error | Music | Jaxsenville',
         description: song && album ? `Listen to ${song.name} from ${album.name} by Jaxsen. Stream the track on Bandcamp.` : 'Listen to music by Jaxsen. Stream tracks on Bandcamp.'
     });
 
@@ -103,18 +102,17 @@ export default function Page() {
                                 <h2 style={{fontWeight:"normal"}}>from {album.name}</h2>
                                 {album.spotify && (
                                     <a href={song.spotify} target="_blank" title={`Open ${album.name} on Spotify`} className="spotify-link">
-                                        <img src="/icon/spotify.svg" className="icon" title="Spotify logo" alt="Spotify logo"/>
+                                        <img src="/icon/spotify.svg" className="icon" alt="Spotify logo"/>
                                     </a>
                                 )}
                             </div>
                         </div>
                         <div className="song-player-section" ref={embedRef}>
-                            {song.embed && shouldLoadEmbed && <ClientBandcampEmbed embed={song.embed} />}
-                            {song.embed && !shouldLoadEmbed && (
-                                <div className="embed-placeholder">
-                                    <p>Loading player...</p>
-                                </div>
-                            )}
+                            <ClientOnly fallback={<div className="embed-placeholder">
+                                <p>Loading player...</p>
+                            </div>}>
+                            {song.embed && shouldLoadEmbed && <BandcampEmbed embed={song.embed} />}
+                            </ClientOnly>
                         </div>
                         <div style={{marginTop:"2rem"}}>
                             <p style={{whiteSpace:"pre-wrap"}} dangerouslySetInnerHTML={{ __html: song.lyrics }} />

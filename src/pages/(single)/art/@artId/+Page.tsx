@@ -24,7 +24,7 @@ export default function Page() {
     const currentUrl = fields ? `https://jaxsenville.com/art/${urlize(fields.title)}` : '';
     
     useMetadata({
-        title: fields ? `${fields.title} | Art | Jaxsenville` : 'Art | Jaxsenville',
+        title: fields ? `${fields.title} by Jaxsen Honeycutt | Jaxsenville` : 'Art | Jaxsenville',
         description: fields ? `View ${fields.title} by Jaxsen - ${fields.media} created in ${new Date(date).getFullYear()}.` : 'Art by Jaxsen',
         openGraph: {
             type: "article",
@@ -43,7 +43,7 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "CreativeWork",
         "name": fields.title,
-        "description": `${fields.title} by Jaxsen - ${fields.media} created in ${new Date(date).getFullYear()}.`,
+        "description": `${fields.title} by Jaxsen Honeycutt - ${fields.media} created in ${new Date(date).getFullYear()}.`,
         "creator": {
             "@type": "Person",
             "name": "Jaxsen Honeycutt"
@@ -65,7 +65,7 @@ export default function Page() {
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             )}
             <div className={"inner"}>
-                <ArtPiece piece={artPiece as IArt} spot={0}/>
+                <ArtPiece piece={artPiece as unknown as IArt} spot={0}/>
             </div>
         </>
     )
