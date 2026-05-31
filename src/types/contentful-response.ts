@@ -47,6 +47,7 @@ export interface ContentfulRelease {
     cover: ContentfulAsset;
     spotify: string;
     tracks?: ContentfulTrack[];
+    releaseType?: 'album' | 'ep' | 'single';
   };
 }
 

@@ -7,8 +7,9 @@ async function data() {
     // Fetch all releases
     const releases = await client.getEntries({
         content_type: "release",
+        'fields.releaseType': 'ep',
         order: ["-fields.date"] as never,
-        include: 2, // Include nested references
+        include: 2,
     });
 
     // Fetch all songs
