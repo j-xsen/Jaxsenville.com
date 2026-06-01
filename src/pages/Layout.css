@@ -111,15 +111,9 @@ ul li, ul a {
     pointer-events: auto;
 }
 
-.header-row {
-    display: flex;
-    align-items: center;
-    padding-right: 1rem;
-}
-
 header {
-    flex: 1;
     z-index: 30;
+    position: relative;
     pointer-events: none;
 }
 
@@ -143,7 +137,9 @@ header a {
 }
 
 .map-trigger {
-    flex-shrink: 0;
+    position: fixed;
+    top: 10rem;
+    right: 1rem;
     z-index: 20;
     background: none;
     border: none;
@@ -154,15 +150,8 @@ header a {
 }
 
 @media (min-width: 600px) {
-    .header-row {
-        display: block;
-        padding-right: 0;
-    }
-
     .map-trigger {
-        position: fixed;
         top: 2rem;
-        right: 1rem;
         animation: rotate-map-trigger 5s linear infinite;
         animation-delay: 0.5s;
     }
