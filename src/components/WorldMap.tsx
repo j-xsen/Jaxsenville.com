@@ -61,12 +61,17 @@ function WorldMap({ open, onClose }: WorldMapProps) {
         return () => dialog.removeEventListener("close", handleClose);
     }, [onClose]);
 
+    const handleBackdropClick = (e: React.MouseEvent<HTMLDialogElement>) => {
+        if (e.target === e.currentTarget) onClose();
+    };
+
     return (
         <dialog
             ref={dialogRef}
             className="world-map-dialog"
             aria-label="Jaxsenville world map"
             aria-modal="true"
+            onClick={handleBackdropClick}
         >
             <button
                 className="world-map-close"
