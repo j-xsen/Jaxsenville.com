@@ -1,10 +1,11 @@
 export {Layout};
 
-import React, {StrictMode} from "react";
+import React, {StrictMode, useState} from "react";
 import {useMetadata} from "vike-metadata-react";
 import "./Layout.css";
 import "../css/Gallery.css";
 import HeaderImage from "../components/HeaderImage";
+import WorldMap from "../components/WorldMap";
 
 useMetadata.setGlobalDefaults({
     title: "Jaxsenville",
@@ -36,15 +37,30 @@ useMetadata.setGlobalDefaults({
 });
 
 export default function Layout({children}: { children: React.ReactNode }) {
+    const [mapOpen, setMapOpen] = useState(false);
+
     return (
         <>
             <StrictMode>
                 <header role={"banner"}>
                     <HeaderImage/>
                 </header>
+                <button
+                    className="map-trigger"
+                    onClick={() => setMapOpen(true)}
+                    aria-label="Open world map"
+                >
+                    <img src="/map/map_closed.avif" alt="" draggable={false}/>
+                </button>
                 <main role={"main"}>
                     {children}
                 </main>
+                <nav aria-label="Jaxsenville locations" className="visually-hidden">
+                    <a href="https://noise.jaxsenville.com">Noise Emporium</a>
+                    <a href="https://museum.jaxsenville.com">Museum of Jaxsen</a>
+                    <a href="https://clinic.jaxsenville.com">Philanthropy Clinic</a>
+                </nav>
+                <WorldMap open={mapOpen} onClose={() => setMapOpen(false)}/>
             </StrictMode>
         </>
     );

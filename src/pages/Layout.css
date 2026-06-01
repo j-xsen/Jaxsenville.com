@@ -120,3 +120,74 @@ header {
 header a {
     pointer-events: auto;
 }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+@keyframes rotate-map-trigger {
+    0%   { transform: rotate(1deg) translateY(0rem); }
+    50%  { transform: rotate(-1deg) translateY(0.2rem); }
+    100% { transform: rotate(1deg) translateY(0rem); }
+}
+
+.map-trigger {
+    position: fixed;
+    top: 12rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    filter: drop-shadow(0px 0.35rem 0.6rem rgba(0, 0, 0, 0.85));
+    transition: filter 0.2s ease;
+}
+
+@media (min-width: 600px) {
+    .map-trigger {
+        top: 2rem;
+        left: 1rem;
+        transform: none;
+        animation: rotate-map-trigger 5s linear infinite;
+        animation-delay: 0.5s;
+    }
+}
+
+.map-trigger img {
+    display: block;
+    height: 5rem;
+    width: auto;
+    user-select: none;
+}
+
+@media (min-width: 600px) {
+    .map-trigger img {
+        height: 7rem;
+    }
+}
+
+.map-trigger:hover,
+.map-trigger:focus-visible {
+    filter: drop-shadow(0 0.35rem 0.6rem rgba(100, 225, 125, 0.75));
+    animation-play-state: paused;
+}
+
+.map-trigger:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .map-trigger {
+        animation: none;
+        transition: none;
+    }
+}
