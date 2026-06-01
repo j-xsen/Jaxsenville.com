@@ -138,9 +138,8 @@ header a {
 
 .map-trigger {
     position: fixed;
-    top: 12rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 1rem;
+    right: 1rem;
     z-index: 20;
     background: none;
     border: none;
@@ -153,9 +152,6 @@ header a {
 @media (min-width: 600px) {
     .map-trigger {
         top: 2rem;
-        left: unset;
-        right: 1rem;
-        transform: none;
         animation: rotate-map-trigger 5s linear infinite;
         animation-delay: 0.5s;
     }
