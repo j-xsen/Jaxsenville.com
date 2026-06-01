@@ -24,7 +24,10 @@ function Layout({children}: { children: React.ReactNode }) {
                     margin: "0",
                     justifyContent: "space-between",
                 }}>
-                    <PageTitleButton text={data.path}/>
+                    <PageTitleButton
+                        text={data.path}
+                        style={data.path === 'art' ? { marginTop: '-0.5rem' } : undefined}
+                    />
                     {pageContext.urlParsed.pathname === "/art" && (
                         <li className="instagram-link-container"
                             onMouseDown={() => window.open("https://www.instagram.com/j_xsen/", "_blank")}>
