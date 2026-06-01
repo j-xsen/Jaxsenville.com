@@ -341,7 +341,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
   padding: 0.5rem;
   height: fit-content;
 }
@@ -353,6 +353,7 @@
 
 .dsp {
   min-height: 0 !important;
+  padding: 0.6rem 0.75rem;
   background-color: #6fafef;
 }
 
@@ -377,16 +378,14 @@
   background-color: #BFDBF8;
 }
 
-.dsp--icon-only {
-  padding: 0.75rem 1rem;
-}
-
-.dsp--icon-only img {
-  height: 2rem;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .dsp {
+    width: auto;
+    margin: 0;
+  }
+
   .album-panel {
     flex-direction: column;
     align-items: center;
