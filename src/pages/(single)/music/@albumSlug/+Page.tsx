@@ -78,7 +78,7 @@ export default function Page() {
                                 <h1>{release.name}</h1>
                                 <p className="album-date">{`${format(release.date, "d MMMM u")}`}</p>
                                 {release.spotify && (
-                                    <a href={release.spotify} target="_blank" title={`Open ${release.name} on Spotify`} className="spotify-link">
+                                    <a href={release.spotify} target="_blank" rel="noopener noreferrer" title={`Open ${release.name} on Spotify`} className="spotify-link">
                                         <img src="/icon/spotify.svg" className="icon" alt="Spotify logo"/>
                                     </a>
                                 )}

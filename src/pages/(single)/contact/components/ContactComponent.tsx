@@ -9,7 +9,7 @@ export default function ContactComponent() {
                 <p>jaxsen (at) jxsen (dot) com</p>
 
                 <p>
-                    <a href={"https://www.instagram.com/j_xsen/"}>
+                    <a href={"https://www.instagram.com/j_xsen/"} target="_blank" rel="noopener noreferrer">
                         <img src={instagramUrl} style={{
                             display: "inline",
                             width: "1.5rem",
@@ -21,6 +21,7 @@ export default function ContactComponent() {
                 </p>
                 <p>
                     <a href={"https://bsky.app/profile/jaxsen.bsky.social"}
+                       target="_blank" rel="noopener noreferrer"
                        style={{position: "relative", top: "0.5rem"}}>
                         <img src={blueskyUrl} className={"icon"} alt={"Bluesky"}/>
                         <span className={"handle"}>jaxsen.bsky.social</span>

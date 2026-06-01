@@ -26,7 +26,7 @@ export function ArtPiece({piece, spot = 1}: { piece: IArt | ArtSkeleton, spot?: 
             <div className={`Frame${spot == 0 ? " Frame0" : ""}`}>
                 <Suspense fallback={<p>Loading...</p>}>
                 <img
-                    alt={""}
+                    alt={fields.title}
                     src={getUrl(fields.lowRez)}
                     className="ArtPiece "
                 />

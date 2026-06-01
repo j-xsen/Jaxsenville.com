@@ -28,7 +28,7 @@ function Layout({children}: { children: React.ReactNode }) {
                     {pageContext.urlParsed.pathname === "/art" && (
                         <li className="instagram-link-container"
                             onMouseDown={() => window.open("https://www.instagram.com/j_xsen/", "_blank")}>
-                            <a href="https://www.instagram.com/j_xsen/" target="_blank" className="instagram-link">
+                            <a href="https://www.instagram.com/j_xsen/" target="_blank" rel="noopener noreferrer" className="instagram-link">
                                 <img src="/icon/instagram.svg" className="icon" alt="Instagram logo"/>
                                 @j_xsen
                             </a>

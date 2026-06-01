@@ -69,3 +69,29 @@
 #contact-button:hover, #contact-button:focus-within {
     filter: drop-shadow(0 0.25rem 0.25rem rgb(35, 168, 12));
 }
+
+@media (max-width: 480px) {
+    .menu-button {
+        width: 8rem;
+    }
+
+    #blahg-button {
+        width: 7.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .menu-button {
+        width: 6.5rem;
+    }
+
+    #blahg-button {
+        width: 6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-button {
+        animation: none;
+    }
+}

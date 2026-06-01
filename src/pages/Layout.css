@@ -130,6 +130,25 @@ header a {
     white-space: nowrap;
 }
 
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid #000;
+    border-radius: 0 0 6px 0;
+    transition: top 0.1s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 @keyframes rotate-map-trigger {
     0%   { transform: rotate(1deg) translateY(0rem); }
     50%  { transform: rotate(-1deg) translateY(0.2rem); }

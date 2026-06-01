@@ -1,11 +1,19 @@
 /* Art Gallery Layout */
 .art-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     margin-top: 17rem;
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+@media (max-width: 599px) {
+    .art-gallery {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 1.5rem;
+    }
 }
 
 .art-gallery-item {

@@ -19,5 +19,5 @@ function Page() {
         msg = pageContext.is404 ? "Page not found" : "An error occurred"
     }
 
-    return <p>{msg}</p>
+    return <h1 style={{marginTop: "7rem"}}>{msg}</h1>
 }

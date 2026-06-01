@@ -28,7 +28,7 @@ export default function Page() {
                     <div key={piece.sys.id} className="art-gallery-item">
                         <a href={`/art/${urlize(fields.title)}`} className="art-link">
                             <div className={`Frame${spot == 0 ? " Frame0" : ""}`}>
-                                <img alt={""}
+                                <img alt={fields.title}
                                     src={fields.lowRez?.fields?.file?.url || "/images/q.webp"}
                                     className="ArtPiece"
                                      loading={"lazy"}
