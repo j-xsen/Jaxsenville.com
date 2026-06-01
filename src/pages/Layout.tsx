@@ -44,14 +44,14 @@ export default function Layout({children}: { children: React.ReactNode }) {
             <StrictMode>
                 <header role={"banner"}>
                     <HeaderImage/>
+                    <button
+                        className="map-trigger"
+                        onClick={() => setMapOpen(true)}
+                        aria-label="Open world map"
+                    >
+                        <img src="/map/map_closed.avif" alt="" draggable={false}/>
+                    </button>
                 </header>
-                <button
-                    className="map-trigger"
-                    onClick={() => setMapOpen(true)}
-                    aria-label="Open world map"
-                >
-                    <img src="/map/map_closed.avif" alt="" draggable={false}/>
-                </button>
                 <main role={"main"}>
                     {children}
                 </main>

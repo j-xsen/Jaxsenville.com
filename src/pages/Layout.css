@@ -117,7 +117,8 @@ header {
     pointer-events: none;
 }
 
-header a {
+header a,
+header button {
     pointer-events: auto;
 }
 
@@ -137,9 +138,10 @@ header a {
 }
 
 .map-trigger {
-    position: fixed;
-    top: 1rem;
+    position: absolute;
+    top: 50%;
     right: 1rem;
+    transform: translateY(-50%);
     z-index: 20;
     background: none;
     border: none;
@@ -151,7 +153,9 @@ header a {
 
 @media (min-width: 600px) {
     .map-trigger {
+        position: fixed;
         top: 2rem;
+        transform: none;
         animation: rotate-map-trigger 5s linear infinite;
         animation-delay: 0.5s;
     }

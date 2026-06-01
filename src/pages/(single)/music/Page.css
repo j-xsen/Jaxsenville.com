@@ -352,23 +352,37 @@
 }
 
 .dsp {
-min-height:0!important;
+  min-height: 0 !important;
   background-color: #6fafef;
 }
 
 .dsp a {
-  color:black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  color: black;
   text-decoration: none;
 }
 
 .dsp img {
-  margin-right:0.5rem;
-  vertical-align: text-bottom;
+  height: 1.25rem;
+  width: auto;
+  flex-shrink: 0;
 }
 
-.dsp:hover{
+.dsp:hover {
   cursor: pointer;
-    background-color: #BFDBF8;
+  background-color: #BFDBF8;
+}
+
+.dsp--icon-only {
+  padding: 0.75rem 1rem;
+}
+
+.dsp--icon-only img {
+  height: 2rem;
 }
 
 /* Responsive Design */
