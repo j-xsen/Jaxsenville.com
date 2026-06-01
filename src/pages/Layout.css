@@ -153,7 +153,8 @@ header a {
 @media (min-width: 600px) {
     .map-trigger {
         top: 2rem;
-        left: 1rem;
+        left: unset;
+        right: 1rem;
         transform: none;
         animation: rotate-map-trigger 5s linear infinite;
         animation-delay: 0.5s;

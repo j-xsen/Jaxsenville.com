@@ -44,6 +44,7 @@ export default function Page() {
                          link={"https://open.spotify.com/artist/6Ly7gJrLmS2qrlbLe3cCKL?si=vzmPIzS8Ti2_0hWsuvY4XQ"}/>
                     <DSP name={"Apple"} link={"https://music.apple.com/us/artist/jaxsen/1497650230"}/>
                     <DSP name={"YouTube"} link={"https://www.youtube.com/@j_xsen"}/>
+                    <DSP name={"Noise Emporium"} icon={"noise"} link={"https://noise.jaxsenville.com"}/>
                 </div>
             </div>
             <div className={"inner no-margin"}>
