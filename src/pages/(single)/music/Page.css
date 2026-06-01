@@ -381,11 +381,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .dsp {
-    width: auto;
-    margin: 0;
-  }
-
   .album-panel {
     flex-direction: column;
     align-items: center;
@@ -426,7 +421,13 @@
     width: calc(100% - 1rem);
     max-width: 500px;
   }
-  
+
+  .dsp-gallery .dsp {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
   .album-cover {
     width: 120px;
     height: 120px;
@@ -507,7 +508,13 @@
     width: calc(100% - 0.5rem);
     max-width: 450px;
   }
-  
+
+  .dsp-gallery .dsp {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
   .album-cover {
     width: 100px;
     height: 100px;

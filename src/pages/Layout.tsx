@@ -42,8 +42,10 @@ export default function Layout({children}: { children: React.ReactNode }) {
     return (
         <>
             <StrictMode>
-                <header role={"banner"}>
-                    <HeaderImage/>
+                <div className="header-row">
+                    <header role={"banner"}>
+                        <HeaderImage/>
+                    </header>
                     <button
                         className="map-trigger"
                         onClick={() => setMapOpen(true)}
@@ -51,7 +53,7 @@ export default function Layout({children}: { children: React.ReactNode }) {
                     >
                         <img src="/map/map_closed.avif" alt="" draggable={false}/>
                     </button>
-                </header>
+                </div>
                 <main role={"main"}>
                     {children}
                 </main>
