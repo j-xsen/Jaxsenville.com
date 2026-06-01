@@ -377,6 +377,10 @@
   display: block;
 }
 
+.dsp-label {
+  transform: translateY(0.12em);
+}
+
 .dsp-gallery .dsp:last-child a {
   font-size: 1.15rem;
 }
