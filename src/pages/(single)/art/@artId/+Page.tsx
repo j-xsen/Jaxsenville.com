@@ -30,7 +30,8 @@ export default function Page() {
             type: "article",
             title: fields ? `${fields.title} | Art | Jaxsenville` : 'Art | Jaxsenville',
             description: fields ? `View ${fields.title} by Jaxsen - ${fields.media} created in ${new Date(date).getFullYear()}.` : 'Art by Jaxsen',
-            images: imageUrl ? [imageUrl] : undefined,
+            images: imageUrl ? `https:${imageUrl}` : undefined,
+            url: currentUrl || undefined,
         }
     })
     

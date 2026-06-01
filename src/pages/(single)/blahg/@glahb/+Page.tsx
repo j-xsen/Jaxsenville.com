@@ -4,7 +4,6 @@ import BlahgPost from "./components/BlahgPost";
 import "./Page.css";
 import {useMetadata} from "vike-metadata-react";
 import Post from "../types/Post";
-import {format} from "date-fns";
 import {parseLocalDate} from "../../../../utils/transformers.ts";
 import Showdown from "showdown";
 import {ContentfulAsset} from "../../../../types/contentful-response.ts";
@@ -36,10 +35,18 @@ export default function Page() {
     const createdAt: Date = thisItem?.fields?.createdAt ? thisItem.fields.createdAt : new Date();
     const url = thisItem?.fields?.url ? String(thisItem.fields.url) : '';
     const currentUrl = url ? `https://jaxsenville.com/blahg/${url}` : 'https://jaxsenville.com/blahg';
+    const heroImageUrl = thisItem?.fields?.heroImage?.fields?.file?.url;
+    const publishedTime = createdAt instanceof Date ? createdAt.toISOString() : new Date(String(createdAt)).toISOString();
+
+    const excerpt = rawContent
+        .replace(/[#*_`[\]()]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 155);
 
     useMetadata({
         title: `${title} | Blahg | Jaxsenville`,
-        description: "Jaxsen Honeycutt chronicles the thought behind his art.",
+        description: excerpt || "Jaxsen Honeycutt chronicles the thought behind his art.",
         openGraph: {
             type: "article",
             authors: "Jaxsen Honeycutt",
@@ -47,8 +54,9 @@ export default function Page() {
             siteName: "Jaxsenville",
             url: currentUrl,
             title: `${title} | Blahg | Jaxsenville`,
-            description: "Jaxsen Honeycutt chronicles the thought behind his art.",
-            publishedTime: format(createdAt, "d MMMM u"),
+            description: excerpt || "Jaxsen Honeycutt chronicles the thought behind his art.",
+            images: heroImageUrl ? `https:${heroImageUrl}` : undefined,
+            publishedTime,
         }
     });
 
@@ -70,7 +78,7 @@ export default function Page() {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": title,
-        "description": "Jaxsen unpacks the synth-layered emotions behind the EP. Introspective notes from the digital city's mayoral journal.",
+        "description": excerpt || "Jaxsen Honeycutt chronicles the thought behind his art.",
         "author": {
             "@type": "Person",
             "name": "Jaxsen Honeycutt",

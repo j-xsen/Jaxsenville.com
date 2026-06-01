@@ -5,7 +5,8 @@ import {useMetadata} from 'vike-metadata-react';
 export default function Page() {
     useMetadata({
         title: "Jaxsenville | The Digital Town of Artist Jaxsen Honeycutt",
-        description: "Step into Jaxsenville, the digital town created by Jaxsen Honeycutt. Explore original artwork, creative projects, blog posts, and ways to get in touch."
+        description: "Step into Jaxsenville, the digital town created by Jaxsen Honeycutt. Explore original artwork, creative projects, blog posts, and ways to get in touch.",
+        openGraph: { url: "https://jaxsenville.com/" },
     })
     return (
         <nav role={"navigation"}>

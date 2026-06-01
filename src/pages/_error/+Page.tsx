@@ -1,9 +1,15 @@
 import {usePageContext} from "vike-react/usePageContext"
+import {useMetadata} from "vike-metadata-react"
 
 export {Page}
 
 function Page() {
     const pageContext = usePageContext()
+
+    useMetadata({
+        title: "Not Found | Jaxsenville",
+        robots: "noindex, nofollow",
+    })
 
     let msg: string
     const {abortReason} = pageContext

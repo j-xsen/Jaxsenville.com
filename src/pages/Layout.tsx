@@ -30,6 +30,9 @@ useMetadata.setGlobalDefaults({
             "Step into Jaxsenville, the digital town created by Jaxsen Honeycutt. Explore original artwork, creative projects, blog posts, and ways to get in touch.",
     },
     publisher: "Jaxsen Honeycutt",
+    twitter: {
+        card: "summary_large_image",
+    },
     viewport: {
         width: "device-width",
         initialScale: 1,

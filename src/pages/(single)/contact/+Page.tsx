@@ -10,7 +10,11 @@ export default function Page() {
             type: "profile",
             firstName: "Jaxsen",
             lastName: "Honeycutt",
-            gender: "male"
+            gender: "male",
+            url: "https://jaxsenville.com/contact",
+            title: "Reach the Mayor | Jaxsenville",
+            description: "Got ideas, collabs, or praise? Write to Mayor Jaxsen - the founder of Jaxsenville - and connect with the heart of this digital city.",
+            images: "https://jaxsenville.com/images/jaxsenvillesign-608x.webp",
         }
     })
     return (

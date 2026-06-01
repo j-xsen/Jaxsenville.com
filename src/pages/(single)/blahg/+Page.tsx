@@ -8,8 +8,11 @@ import PostListing from "./types/PostListing";
 import {parseLocalDate} from "../../../utils/transformers.ts";
 
 export default function Page() {
-    useMetadata({title: "Blahg | Notes from Jaxsenville",
-    description:"Wander into the Blahg - Jaxsen's musings on sound, creativity, and town life. Dive into behind-the-scenes posts and experimental thoughts."});
+    useMetadata({
+        title: "Blahg | Notes from Jaxsenville",
+        description: "Wander into the Blahg - Jaxsen's musings on sound, creativity, and town life. Dive into behind-the-scenes posts and experimental thoughts.",
+        openGraph: { url: "https://jaxsenville.com/blahg" },
+    });
 
     const data = useData<Data>();
 

@@ -9,7 +9,8 @@ import {parseLocalDate} from "../../../utils/transformers.ts";
 export default function Page() {
     useMetadata({
         title: "Music | Listen to Jaxsenville",
-        description: "Listen to the different EPs released by our mayor, Jaxsen Honeycutt."
+        description: "Listen to the different EPs released by our mayor, Jaxsen Honeycutt.",
+        openGraph: { url: "https://jaxsenville.com/music" },
     });
 
     const data = useData<Data>();
@@ -41,10 +42,9 @@ export default function Page() {
             <div className="upper">
                 <div className="dsp-gallery">
                     <DSP name={"Spotify"}
-                         link={"https://open.spotify.com/artist/6Ly7gJrLmS2qrlbLe3cCKL?si=vzmPIzS8Ti2_0hWsuvY4XQ"}
-                         iconOnly/>
-                    <DSP name={"Apple"} link={"https://music.apple.com/us/artist/jaxsen/1497650230"} iconOnly/>
-                    <DSP name={"YouTube"} link={"https://www.youtube.com/@j_xsen"} iconOnly/>
+                         link={"https://open.spotify.com/artist/6Ly7gJrLmS2qrlbLe3cCKL?si=vzmPIzS8Ti2_0hWsuvY4XQ"}/>
+                    <DSP name={"Apple"} link={"https://music.apple.com/us/artist/jaxsen/1497650230"}/>
+                    <DSP name={"YouTube"} link={"https://www.youtube.com/@j_xsen"}/>
                     <DSP name={"Noise Emporium"} icon={"noise"} link={"https://noise.jaxsenville.com"}/>
                 </div>
             </div>

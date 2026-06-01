@@ -34,7 +34,11 @@ export default function Page() {
 
     useMetadata({
         title: song && album ? `${song.name} from ${album.name} | Jaxsenville` : 'Error | Music | Jaxsenville',
-        description: song && album ? `Listen to ${song.name} from ${album.name} by Jaxsen. Stream the track on Bandcamp.` : 'Listen to music by Jaxsen. Stream tracks on Bandcamp.'
+        description: song && album ? `Listen to ${song.name} from ${album.name} by Jaxsen. Stream the track on Bandcamp.` : 'Listen to music by Jaxsen. Stream tracks on Bandcamp.',
+        openGraph: song && album ? {
+            images: album.cover,
+            url: `https://jaxsenville.com/music/${album.slug}/${song.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
+        } : undefined,
     });
 
     if (!data.song) {

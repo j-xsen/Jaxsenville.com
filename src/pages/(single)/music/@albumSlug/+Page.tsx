@@ -12,7 +12,11 @@ export default function Page() {
     
     useMetadata({
         title: release ? `${release.name} by jaxsen | Jaxsenville` : 'Music | Jaxsenville',
-        description: release ? `Listen to ${release.name} by Jaxsen. Stream the full album and explore the tracks.` : 'Listen to music by Jaxsen. Stream albums and explore tracks.'
+        description: release ? `Listen to ${release.name} by Jaxsen. Stream the full album and explore the tracks.` : 'Listen to music by Jaxsen. Stream albums and explore tracks.',
+        openGraph: release ? {
+            images: release.cover,
+            url: `https://jaxsenville.com/music/${release.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
+        } : undefined,
     });
     
     if (!data.release) {

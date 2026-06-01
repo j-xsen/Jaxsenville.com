@@ -9,7 +9,8 @@ import {parseLocalDate} from "../../../utils/transformers.ts";
 export default function Page() {
     useMetadata({
         title: "Visual Art by Jaxsen Honeycutt | Jaxsenville",
-        description: "Browse a collection of Jaxsen's visual art. Explore paintings, digital art, and mixed media pieces that capture the essence of Jaxsenville's vibrant culture."
+        description: "Browse a collection of Jaxsen's visual art. Explore paintings, digital art, and mixed media pieces that capture the essence of Jaxsenville's vibrant culture.",
+        openGraph: { url: "https://jaxsenville.com/art" },
     })
     const data = useData<Data>();
     
