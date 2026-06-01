@@ -100,7 +100,7 @@ export default function Page() {
             "@id": currentUrl
         },
         "url": currentUrl,
-        "articleBody": content,
+        "articleBody": rawContent,
         "genre": "Music Blog",
         "keywords": "synthpop, electronic music, EP, digital art, Jaxsenville"
     };
