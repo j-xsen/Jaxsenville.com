@@ -121,7 +121,7 @@
 
 @media (max-width: 599px) {
     .world-map-pin img {
-        width: 8rem;
+        width: 5rem;
     }
 
     .world-map-pin-label {

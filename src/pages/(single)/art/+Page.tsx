@@ -13,8 +13,35 @@ export default function Page() {
         openGraph: { url: "https://jaxsenville.com/art" },
     })
     const data = useData<Data>();
-    
+
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Visual Art by Jaxsen Honeycutt",
+        "description": "Browse a collection of Jaxsen's visual art. Explore paintings, digital art, and mixed media pieces that capture the essence of Jaxsenville's vibrant culture.",
+        "url": "https://jaxsenville.com/art",
+        "author": {
+            "@type": "Person",
+            "@id": "https://jaxsenville.com/#jaxsen",
+            "name": "Jaxsen Honeycutt"
+        },
+        "hasPart": data.arts.items.map((piece) => {
+            const f = piece.fields as { title: string; date: string | Date; media: string; lowRez: { fields?: { file?: { url?: string } } } };
+            const imgUrl = f.lowRez?.fields?.file?.url;
+            return {
+                "@type": "VisualArtwork",
+                "name": f.title,
+                "url": `https://jaxsenville.com/art/${urlize(f.title)}`,
+                "artMedium": f.media,
+                ...(imgUrl && { "image": `https:${imgUrl}` }),
+                "creator": { "@type": "Person", "name": "Jaxsen Honeycutt" }
+            };
+        })
+    };
+
     return (
+        <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <div className="art-gallery">
             {data.arts.items.map((piece, spot) => {
                 const fields = piece.fields as {
@@ -42,5 +69,6 @@ export default function Page() {
                 )
             })}
         </div>
+        </>
     )
 }

@@ -21,7 +21,30 @@ export default function Page() {
         return <h1 style={{marginTop: "7rem"}}>Blog not found.</h1>
     }
 
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Blahg | Notes from Jaxsenville",
+        "description": "Wander into the Blahg - Jaxsen's musings on sound, creativity, and town life. Dive into behind-the-scenes posts and experimental thoughts.",
+        "url": "https://jaxsenville.com/blahg",
+        "author": {
+            "@type": "Person",
+            "@id": "https://jaxsenville.com/#jaxsen",
+            "name": "Jaxsen Honeycutt"
+        },
+        "blogPost": data.posts.items
+            .filter(post => !!post.fields)
+            .map(post => ({
+                "@type": "BlogPosting",
+                "headline": post.fields.title,
+                "url": `https://jaxsenville.com/blahg/${post.fields.url}`,
+                "datePublished": parseLocalDate(post.fields.createdAt).toISOString(),
+            }))
+    };
+
     return (
+        <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <div className={"inner"}>
             {data.posts?.items.map((post, index) => {
                 if (!post.fields) return null;
@@ -41,5 +64,6 @@ export default function Page() {
                 );
             })}
         </div>
+        </>
     );
 }

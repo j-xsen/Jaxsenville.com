@@ -15,6 +15,29 @@ export default function Page() {
 
     const data = useData<Data>();
 
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Jaxsen",
+        "url": "https://jaxsenville.com/music",
+        "sameAs": [
+            "https://open.spotify.com/artist/6Ly7gJrLmS2qrlbLe3cCKL?si=vzmPIzS8Ti2_0hWsuvY4XQ",
+            "https://music.apple.com/us/artist/jaxsen/1497650230",
+            "https://www.youtube.com/@j_xsen",
+            "https://noise.jaxsenville.com"
+        ],
+        "album": data.releases.items.map((release) => {
+            const coverUrl = release.fields?.cover?.fields?.file?.url;
+            const slug = release.fields?.name?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') || 'unknown';
+            return {
+                "@type": "MusicAlbum",
+                "name": String(release.fields?.name || "Unknown Release"),
+                "url": `https://jaxsenville.com/music/${slug}`,
+                ...(coverUrl && { "image": `https:${coverUrl}` }),
+            };
+        })
+    };
+
     // Transform releases to album gallery format
     const transformAlbum = (release: {
         sys: { id: string };
@@ -39,6 +62,7 @@ export default function Page() {
 
     return (
         <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
             <div className="upper">
                 <div className="dsp-gallery">
                     <DSP name={"Spotify"}

@@ -8,7 +8,12 @@ function Page() {
 
     useMetadata({
         title: "Not Found | Jaxsenville",
+        description: "The page you're looking for doesn't exist in Jaxsenville.",
         robots: "noindex, nofollow",
+        openGraph: {
+            title: "Not Found | Jaxsenville",
+            description: "The page you're looking for doesn't exist in Jaxsenville.",
+        }
     })
 
     let msg: string
