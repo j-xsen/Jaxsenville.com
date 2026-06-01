@@ -28,30 +28,34 @@ export default function Page() {
         );
     }
 
-    // Add JSON-LD schema
+    const albumSlug = release ? release.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') : '';
+    const albumUrl = release ? `https://jaxsenville.com/music/${albumSlug}` : '';
+
     const schemaData = release ? {
         "@context": "https://schema.org",
         "@type": "MusicAlbum",
         "name": release.name,
-        "artist": {
-            "@type": "MusicGroup",
-            "name": "Jaxsen"
-        },
+        "artist": { "@type": "MusicGroup", "name": "Jaxsen" },
         "datePublished": release.date.toISOString().split('T')[0],
         "image": release.cover,
         "track": release.tracks.map((track) => ({
             "@type": "MusicRecording",
             "name": track.name || `Track ${track.pos}`,
             "position": track.pos,
-            "url": `/music/${release.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/${(track.name || `track-${track.pos}`).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`
+            "url": `https://jaxsenville.com/music/${albumSlug}/${(track.name || `track-${track.pos}`).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`
         })),
-        "url": `/music/${release.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
-        ...(release.spotify && {
-            "potentialAction": {
-                "@type": "ListenAction",
-                "target": release.spotify
-            }
-        })
+        "url": albumUrl,
+        ...(release.spotify && { "potentialAction": { "@type": "ListenAction", "target": release.spotify } })
+    } : null;
+
+    const breadcrumbs = release ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Music", "item": "https://jaxsenville.com/music" },
+            { "@type": "ListItem", "position": 3, "name": release.name, "item": albumUrl }
+        ]
     } : null;
 
     // Create URL-friendly slug from song name
@@ -61,6 +65,7 @@ export default function Page() {
 
     return (
         <>
+            {breadcrumbs && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />}
             {schemaData && (
                 <script
                     type="application/ld+json"

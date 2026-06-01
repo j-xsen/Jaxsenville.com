@@ -39,32 +39,32 @@ export default function Page() {
         return <h1 style={{marginTop: "7rem"}}>Art piece not found.</h1>;
     }
     
-    // JSON-LD Schema for the art piece
     const schema = fields ? {
         "@context": "https://schema.org",
-        "@type": "CreativeWork",
+        "@type": "VisualArtwork",
         "name": fields.title,
         "description": `${fields.title} by Jaxsen Honeycutt - ${fields.media} created in ${new Date(date).getFullYear()}.`,
-        "creator": {
-            "@type": "Person",
-            "name": "Jaxsen Honeycutt"
-        },
+        "creator": { "@type": "Person", "@id": "https://jaxsenville.com/#jaxsen", "name": "Jaxsen Honeycutt" },
         "dateCreated": date,
-        "genre": fields.media,
-        "image": imageUrl,
+        "artMedium": fields.media,
+        ...(imageUrl && { "image": `https:${imageUrl}` }),
         "url": currentUrl,
-        "publisher": {
-            "@type": "Organization",
-            "name": "Jaxsenville",
-            "url": "https://jaxsenville.com"
-        }
     } : null;
-    
+
+    const breadcrumbs = fields ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Art", "item": "https://jaxsenville.com/art" },
+            { "@type": "ListItem", "position": 3, "name": fields.title, "item": currentUrl }
+        ]
+    } : null;
+
     return (
         <>
-            {schema && (
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-            )}
+            {schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />}
+            {breadcrumbs && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />}
             <div className={"inner"}>
                 <ArtPiece piece={artPiece as unknown as IArt} spot={0}/>
             </div>

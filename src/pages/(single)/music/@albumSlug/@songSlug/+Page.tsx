@@ -50,40 +50,42 @@ export default function Page() {
         );
     }
 
-    // Add JSON-LD schema
+    const songSlug = song ? song.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') : '';
+    const songUrl = song && album ? `https://jaxsenville.com/music/${album.slug}/${songSlug}` : '';
+    const albumUrl = album ? `https://jaxsenville.com/music/${album.slug}` : '';
+
     const schemaData = song && album ? {
         "@context": "https://schema.org",
         "@type": "MusicRecording",
         "name": song.name,
-        "artist": {
-            "@type": "MusicGroup",
-            "name": "Jaxsen"
-        },
+        "artist": { "@type": "MusicGroup", "name": "Jaxsen" },
         "inAlbum": {
             "@type": "MusicAlbum",
             "name": album.name,
             "image": album.cover,
-            "url": `/music/${album.slug}`
+            "url": albumUrl
         },
         "position": song.pos,
         "image": album.cover,
-        "url": `/music/${album.slug}/${song.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`,
-        ...(album.spotify && {
-            "potentialAction": {
-                "@type": "ListenAction",
-                "target": song.spotify
-            }
-        }),
-        ...(song.lyrics && {
-            "lyrics": {
-                "@type": "CreativeWork",
-                "text": song.lyrics.replace(/<br\s*\/?>/gi, '')
-            }
-        })
+        "url": songUrl,
+        ...(album.spotify && { "potentialAction": { "@type": "ListenAction", "target": song.spotify } }),
+        ...(song.lyrics && { "lyrics": { "@type": "CreativeWork", "text": song.lyrics.replace(/<br\s*\/?>/gi, '') } })
+    } : null;
+
+    const breadcrumbs = song && album ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Music", "item": "https://jaxsenville.com/music" },
+            { "@type": "ListItem", "position": 3, "name": album.name, "item": albumUrl },
+            { "@type": "ListItem", "position": 4, "name": song.name, "item": songUrl }
+        ]
     } : null;
 
     return (
         <>
+            {breadcrumbs && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />}
             {schemaData && (
                 <script
                     type="application/ld+json"

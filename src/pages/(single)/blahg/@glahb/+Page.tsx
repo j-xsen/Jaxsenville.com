@@ -105,9 +105,20 @@ export default function Page() {
         "keywords": "synthpop, electronic music, EP, digital art, Jaxsenville"
     };
 
+    const breadcrumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blahg", "item": "https://jaxsenville.com/blahg" },
+            { "@type": "ListItem", "position": 3, "name": title, "item": currentUrl }
+        ]
+    };
+
     return (
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
             <div className="Gallery">
                 <div className={"inner"}>
                 {data.post && <BlahgPost data={blahg}/>}
