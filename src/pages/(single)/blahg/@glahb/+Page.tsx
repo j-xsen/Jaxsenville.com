@@ -92,7 +92,7 @@ export default function Page() {
             "url": "https://jaxsenville.com",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://jaxsenville.com/icon.png"
+                "url": "https://jaxsenville.com/images/jaxsenvillesign-608x.webp"
             }
         },
         "mainEntityOfPage": {
@@ -110,7 +110,7 @@ export default function Page() {
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Blahg", "item": "https://jaxsenville.com/blahg" },
+            { "@type": "ListItem", "position": 2, "name": "Blahg", "item": "https://jaxsenville.com/blahg/" },
             { "@type": "ListItem", "position": 3, "name": title, "item": currentUrl }
         ]
     };

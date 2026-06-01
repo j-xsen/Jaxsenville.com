@@ -56,7 +56,7 @@ export default function Page() {
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Art", "item": "https://jaxsenville.com/art" },
+            { "@type": "ListItem", "position": 2, "name": "Art", "item": "https://jaxsenville.com/art/" },
             { "@type": "ListItem", "position": 3, "name": fields.title, "item": currentUrl }
         ]
     } : null;

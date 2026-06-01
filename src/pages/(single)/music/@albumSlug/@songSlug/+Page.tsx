@@ -77,7 +77,7 @@ export default function Page() {
         "@type": "BreadcrumbList",
         "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Jaxsenville", "item": "https://jaxsenville.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Music", "item": "https://jaxsenville.com/music" },
+            { "@type": "ListItem", "position": 2, "name": "Music", "item": "https://jaxsenville.com/music/" },
             { "@type": "ListItem", "position": 3, "name": album.name, "item": albumUrl },
             { "@type": "ListItem", "position": 4, "name": song.name, "item": songUrl }
         ]
